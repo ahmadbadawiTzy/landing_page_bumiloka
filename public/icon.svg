@@ -1,0 +1,22 @@
+<svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Brand Squircle Background -->
+  <rect width="32" height="32" rx="7" fill="#143323"/>
+
+  <!-- Vertical Hydroponic Stem (Spine of 'B') -->
+  <rect x="5.5" y="5.5" width="3.5" height="21" rx="1.75" fill="#F7F6F2"/>
+
+  <!-- Upper Botanical Lobe (Young Leaf / Upper 'B' Loop) -->
+  <path d="M9 7C14.5 7 20.5 8.2 20.5 13.5C20.5 15.8 17.8 17 14.8 17H9V7Z" fill="#1F6E43"/>
+
+  <!-- Upper Inner Droplet Cutout -->
+  <path d="M12.5 10C15 10 17 11 17 13.5C17 14.5 15.8 14.8 14 14.8H12.5V10Z" fill="#143323"/>
+
+  <!-- Lower Botanical Lobe (Mature Leaf & Droplet / Lower 'B' Loop) -->
+  <path d="M9 15.5H15.5C19.5 15.5 23 17 23 21.8C23 25.2 18.8 26.2 13.5 26.2H9V15.5Z" fill="#F7F6F2"/>
+
+  <!-- Lower Inner Droplet Cutout -->
+  <path d="M12.5 18.2H14.8C17.2 18.2 19.2 19 19.2 21.8C19.2 23.5 16.8 23.8 14.5 23.8H12.5V18.2Z" fill="#143323"/>
+
+  <!-- Central Hydroponic Nutrient Vein Dot -->
+  <circle cx="9" cy="16.2" r="1.2" fill="#143323"/>
+</svg>

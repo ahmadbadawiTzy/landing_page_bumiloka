@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #092215;
+  --color-primary-hover: #0e2f1f;
+  --color-secondary: #1e4a32;
+  --color-accent: #b85d2b;
+  --color-lime: #b6f084;
+  --color-lime-hover: #c7f69b;
+  --color-lime-text: #092215;
+  --color-forest: #092215;
+  --color-forest-dark: #06180e;
+  --color-bg: #f7f8f3;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efece4;
+  --color-surface-dark: #092215;
+  --color-border: #e2e6dc;
+  --color-text-primary: #121a15;
+  --color-text-secondary: #4a554e;
+  --color-text-muted: #68736c;
+  --color-success: #1f6e43;
+  --color-warning: #b4690e;
+  --color-danger: #b93829;
+  --color-info: #1d5d7a;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus visibility per DESIGN.md accessibility contract */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.dark-surface *:focus-visible {
+  outline: 2px solid #f7f6f2;
+  outline-offset: 2px;
+}
+
+/* Tabular numerals for agronomic metrics (pH, PPM, HST) */
+.tabular-metrics {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduced motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
