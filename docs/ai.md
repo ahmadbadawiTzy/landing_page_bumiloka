@@ -151,6 +151,9 @@ Agen **DILARANG** membuat aturan SEO tandingan atau mengimplementasikan metadata
    - Seluruh tautan ke domain luar wajib menyertakan atribut `target="_blank"` dan `rel="noopener noreferrer"`.
 3. **Batas Arsitektur Tanpa Backend (`MUST`)**:
    - BumiLoka saat ini adalah proyek *frontend-only marketing landing page*. Agen **DILARANG** menambahkan database (Prisma, Mongoose, Supabase), API server dinamis, atau sistem otentikasi kecuali diminta secara eksplisit oleh pemilik proyek.
+4. **Pencegahan Artefak Stale & Isolasi Server Dev/Build (`MUST`)**:
+   - Agen **DILARANG** menjalankan `npm run build` bersamaan saat `npm run dev` sedang aktif di proses latar belakang. Kompilasi produksi akan menimpa direktori `.next` dengan artefak produksi termanifestasi berbeda, memicu kegagalan runtime Webpack (`__webpack_modules__[moduleId] is not a function` atau `Cannot find module './xxx.js'`).
+   - Jika terjadi tabrakan artefak cache atau error runtime Webpack serupa, hentikan server dev dan jalankan `npm run clean` (atau `rm -rf .next`) sebelum memulai ulang.
 
 ---
 

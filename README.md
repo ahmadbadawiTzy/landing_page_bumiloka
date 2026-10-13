@@ -110,6 +110,10 @@ Seluruh skrip berikut terdaftar resmi di `package.json` dan wajib lolos pengujia
   ```bash
   npm run lint
   ```
+- **Pembersihan Cache Build (*Clean Cache*):**
+  ```bash
+  npm run clean
+  ```
 - **Kompilasi Build Produksi (*Production Build*):**
   ```bash
   npm run build
