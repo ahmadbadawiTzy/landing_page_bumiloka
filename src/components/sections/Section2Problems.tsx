@@ -13,9 +13,9 @@ export function Section2Problems() {
     <section
       id="masalah-petani"
       aria-labelledby="masalah-petani-heading"
-      className="w-full relative py-20 sm:py-28 bg-[#F7F8F3] border-b border-[#E2E6DC] overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#F7F8F3] border-b border-[#E2E6DC] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFECE4] border border-[#E2E6DC]">
@@ -25,7 +25,7 @@ export function Section2Problems() {
           </div>
           <h2
             id="masalah-petani-heading"
-            className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-[1.15]"
+            className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-[1.18] sm:leading-[1.15]"
           >
             Kendala Nyata yang Dihadapi Petani Hidroponik
           </h2>
@@ -35,11 +35,11 @@ export function Section2Problems() {
         </div>
 
         {/* 3 Focused Problem Cards in deliberate full-width grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {CUSTOMER_PROBLEMS.map((problem, idx) => (
             <article
               key={problem.id}
-              className="bg-white rounded-3xl border border-[#E2E6DC] p-6 sm:p-8 flex flex-col justify-between hover:border-[#143323] shadow-xs hover:shadow-md transition-all group"
+              className="bg-white rounded-3xl border border-[#E2E6DC] p-5 sm:p-8 flex flex-col justify-between hover:border-[#143323] shadow-xs hover:shadow-md transition-all group"
             >
               <div className="space-y-4">
                 {/* Header row with Icon and Category */}
@@ -74,7 +74,7 @@ export function Section2Problems() {
 
                 <a
                   href="#solusi-manfaat"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#143323] hover:text-[#1F6E43] transition-colors group/link pt-1"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#143323] hover:text-[#1F6E43] transition-colors group/link pt-1 min-h-[44px] touch-press"
                 >
                   <span>{problem.relatedCapability}</span>
                   <ArrowRight

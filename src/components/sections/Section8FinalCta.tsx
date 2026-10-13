@@ -8,7 +8,7 @@ export function Section8FinalCta() {
     <section
       id="cta-akhir"
       aria-labelledby="cta-akhir-heading"
-      className="relative w-full py-24 sm:py-32 lg:py-36 overflow-hidden bg-[#06180E] text-white"
+      className="relative w-full py-16 sm:py-28 lg:py-36 overflow-hidden bg-[#06180E] text-white"
     >
       {/* ------------------------------------------------------------- */}
       {/* FULL-BLEED PHOTOGRAPHIC BACKGROUND (100vw Edge-to-Edge)       */}
@@ -34,7 +34,7 @@ export function Section8FinalCta() {
         {/* Core Element 1: Strong Benefit-Driven Headline */}
         <h2
           id="cta-akhir-heading"
-          className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15] text-balance"
+          className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15] text-balance"
         >
           Mulai Kelola Kebun Hidroponik Anda Lebih Teratur dan Pasti
         </h2>
@@ -45,24 +45,24 @@ export function Section8FinalCta() {
         </p>
 
         {/* Core Element 3: ONE Primary CTA Button */}
-        <div className="pt-2 flex justify-center">
+        <div className="pt-2 flex justify-center w-full">
           <a
             href="#langganan"
-            className="inline-flex items-center justify-center gap-2.5 px-9 py-4 sm:py-4.5 rounded-full bg-[#B6F084] text-[#092215] font-bold text-base hover:bg-[#C7F69B] transition-all shadow-xl hover:shadow-2xl hover:scale-[1.01] group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm sm:text-base hover:bg-[#C7F69B] active:scale-[0.98] transition-all shadow-md min-h-[48px] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white group"
           >
-            <span>Mulai Sekarang — Paket Langganan</span>
+            <span>Informasi Langganan (Rp45.000/bulan)</span>
             <ArrowRight
-              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
               aria-hidden="true"
             />
           </a>
         </div>
 
         {/* Honest Operational Notice per docs/ai.md */}
-        <div className="pt-4 text-xs text-white/60 flex items-center justify-center gap-2 max-w-md mx-auto">
+        <div className="pt-4 text-xs text-white/60 flex items-center justify-center gap-2 max-w-md mx-auto text-center">
           <ShieldCheck className="w-4 h-4 shrink-0 text-[#B6F084]" aria-hidden="true" />
           <span>
-            Pratinjau konsep antarmuka • Pembayaran online dan akun belum diaktifkan
+            Pratinjau konsep antarmuka • Pendaftaran langganan via kontak resmi WhatsApp &amp; Email
           </span>
         </div>
       </div>

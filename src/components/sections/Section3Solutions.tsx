@@ -14,9 +14,9 @@ export function Section3Solutions() {
     <section
       id="solusi-manfaat"
       aria-labelledby="solusi-manfaat-heading"
-      className="w-full relative py-20 sm:py-28 lg:py-32 bg-[#092215] text-white border-b border-white/10 overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#092215] text-white border-b border-white/10 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         {/* Split Feature Introduction */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Narrative */}
@@ -30,7 +30,7 @@ export function Section3Solutions() {
 
               <h2
                 id="solusi-manfaat-heading"
-                className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
+                className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15]"
               >
                 Tiga Solusi Terpadu untuk Menjawab Kendala Kebun
               </h2>
@@ -59,7 +59,7 @@ export function Section3Solutions() {
             <div className="pt-2">
               <a
                 href="#produk-layanan"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm hover:bg-[#C7F69B] transition-all shadow-md hover:scale-[1.01] group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm hover:bg-[#C7F69B] transition-all shadow-md hover:scale-[1.01] group min-h-[48px] touch-press"
               >
                 <span>Lihat Pratinjau Tiga Modul</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -68,7 +68,7 @@ export function Section3Solutions() {
           </div>
 
           {/* Right Visual Photo Card */}
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden relative min-h-[340px] lg:min-h-[420px] border border-white/15 shadow-xl bg-[#06180E]">
+          <div className="lg:col-span-5 rounded-3xl overflow-hidden relative min-h-[260px] sm:min-h-[340px] lg:min-h-[420px] border border-white/15 shadow-xl bg-[#06180E]">
             <Image
               src="/images/hydroponic-netpot.jpg"
               alt="Akar tanaman selada hidroponik yang sehat dan bersih di dalam netpot instalasi NFT"
@@ -77,7 +77,7 @@ export function Section3Solutions() {
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 right-6 text-white text-xs sm:text-sm">
+            <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 text-white text-xs sm:text-sm">
               <span className="font-semibold block text-base sm:text-lg text-white">Dari Semai hingga Panen Terjual</span>
               <span className="text-white/80 text-xs sm:text-sm block mt-1">
                 Menghubungkan ketertiban teknis budidaya dengan kepastian pembeli
@@ -87,11 +87,11 @@ export function Section3Solutions() {
         </div>
 
         {/* 3 Detailed Benefit Mapping Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {SOLUTIONS_BENEFITS.map((solution, idx) => (
             <div
               key={solution.id}
-              className="bg-white/5 backdrop-blur-xs rounded-3xl border border-white/15 p-6 sm:p-8 flex flex-col justify-between hover:bg-white/10 hover:border-white/30 shadow-md transition-all group"
+              className="bg-white/5 backdrop-blur-xs rounded-3xl border border-white/15 p-5 sm:p-8 flex flex-col justify-between hover:bg-white/10 hover:border-white/30 shadow-md transition-all group"
             >
               <div>
                 {/* Header with Icon and Focus */}
@@ -139,7 +139,7 @@ export function Section3Solutions() {
               <div className="mt-8 pt-4 border-t border-white/15">
                 <a
                   href={solution.targetAnchor}
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-[#B6F084] hover:text-[#C7F69B] transition-colors group/link"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-[#B6F084] hover:text-[#C7F69B] transition-colors group/link min-h-[44px] touch-press"
                 >
                   <span>Lihat Pratinjau Modul</span>
                   <ArrowRight

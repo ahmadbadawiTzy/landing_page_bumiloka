@@ -99,17 +99,36 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Mulai", href: "#cta-akhir", sectionIndex: "08" },
 ];
 
+export interface SubscriptionContact {
+  email: string;
+  emailHref: string;
+  phoneDisplay: string;
+  phoneWhatsappDigits: string;
+  whatsappContactName: string;
+  whatsappHref: string;
+}
+
+export const SUBSCRIPTION_CONTACT: SubscriptionContact = {
+  email: "bumiloka227@gmail.com",
+  emailHref: "mailto:bumiloka227@gmail.com",
+  phoneDisplay: "+62 852-1054-2025",
+  phoneWhatsappDigits: "6285210542025",
+  whatsappContactName: "Rayn Amannullah Tzulkifli",
+  whatsappHref:
+    "https://wa.me/6285210542025?text=Halo%20BumiLoka%2C%20saya%20tertarik%20untuk%20berlangganan%20layanan%20BumiLoka%20(Rp45.000%2Fbulan).%20Bisa%20dibantu%20informasinya%3F",
+};
+
 export const HERO_CONTENT = {
   label: "Platform Budidaya Hidroponik",
   headline: "Kelola Kebun Lebih Rapi, Tangani Gejala Daun, dan Pasarkan Panen Lebih Pasti",
   subheadline:
     "BumiLoka membantu petani hidroponik memantau kondisi air tandon harian, memahami penyebab kendala tanaman lewat asisten AI, serta mempertemukan hasil panen segar dengan calon pembeli sebelum hari potong.",
   primaryCta: {
-    label: "Lihat Tiga Layanan BumiLoka",
+    label: "Lihat Layanan BumiLoka",
     href: "#produk-layanan",
   },
   secondaryCta: {
-    label: "Paket Langganan (Rp45.000)",
+    label: "Langganan Rp45.000/bln",
     href: "#langganan",
   },
   pillars: [
@@ -389,8 +408,8 @@ export const SUBSCRIPTION_PLAN: SubscriptionPlan = {
   badge: "Paket Berlangganan",
   price: "Rp45.000",
   priceNumeric: 45000,
-  descriptor: "Satu paket lengkap",
-  billingIntervalNote: "Periode penagihan belum dikonfirmasi oleh pemilik proyek (menunggu validasi operasional).",
+  descriptor: "/bulan",
+  billingIntervalNote: "Biaya langganan Rp45.000 per bulan (ditagihkan bulanan, bukan sekali bayar).",
   description:
     "Akses terpadu ke seluruh layanan BumiLoka untuk membantu pemantauan nutrisi harian, konsultasi gejala tanaman lewat asisten AI, dan publikasi pra-pesan hasil panen.",
   features: [
@@ -401,11 +420,11 @@ export const SUBSCRIPTION_PLAN: SubscriptionPlan = {
     "Akses penuh tanpa pemisahan fitur atau batasan meja instalasi",
   ],
   cta: {
-    label: "Tanyakan Akses Langganan",
-    href: "#faq",
+    label: "Hubungi via WhatsApp",
+    href: "https://wa.me/6285210542025?text=Halo%20BumiLoka%2C%20saya%20tertarik%20untuk%20berlangganan%20layanan%20BumiLoka%20(Rp45.000%2Fbulan).%20Bisa%20dibantu%20informasinya%3F",
   },
   transparencyNote:
-    "Catatan Transparansi: BumiLoka saat ini merupakan pratinjau konsep antarmuka. Sistem pembayaran online dan pendaftaran akun belum diaktifkan.",
+    "Untuk mendaftar atau menanyakan akses langganan Rp45.000/bulan, hubungi tim kami via WhatsApp atau Email. Pembayaran otomatis di website belum diaktifkan.",
 };
 
 export const FAQ_ITEMS: FaqItem[] = [
@@ -421,9 +440,9 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: "Langganan",
     question: "Berapa biaya langganan BumiLoka dan apa saja yang didapatkan?",
     answer:
-      "BumiLoka menyediakan satu paket berlangganan seharga Rp45.000. Paket ini mencakup seluruh layanan inti: Pengelolaan Budidaya untuk log pH/PPM/suhu tandon, Marketplace Hasil Panen untuk membuka pra-pesan sayuran, dan Asisten AI Budidaya untuk panduan penanganan gejala tanaman.",
+      "BumiLoka menyediakan satu paket berlangganan seharga Rp45.000 per bulan (Rp45.000/bulan). Paket ini mencakup seluruh layanan inti: Pengelolaan Budidaya untuk log pH/PPM/suhu tandon, Marketplace Hasil Panen untuk membuka pra-pesan sayuran, dan Asisten AI Budidaya untuk panduan penanganan gejala tanaman. Pendaftaran dan pertanyaan langganan dapat dilakukan langsung dengan menghubungi kontak resmi WhatsApp atau Email BumiLoka.",
     highlightNote:
-      "Catatan Biaya: Periode penagihan belum dikonfirmasi oleh pemilik proyek. Karena halaman ini adalah pratinjau konsep antarmuka, pembayaran online belum dibuka.",
+      "Biaya Berlangganan: Rp45.000 per bulan (ditagihkan bulanan, bukan sekali bayar). Untuk mulai berlangganan, hubungi WhatsApp (+62 852-1054-2025 - Rayn Amannullah Tzulkifli) atau Email (bumiloka227@gmail.com).",
   },
   {
     id: "faq-siapa-pengguna",

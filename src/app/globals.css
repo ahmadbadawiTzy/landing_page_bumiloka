@@ -35,16 +35,37 @@ html {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  overflow-x: hidden;
-  min-height: 100vh;
+  overflow-x: clip;
+  min-height: 100dvh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Native-like horizontal scroll without scrollbar clutter */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Touch feedback utility */
+.touch-press {
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.touch-press:active {
+  transform: scale(0.98);
 }
 
 /* Focus visibility per DESIGN.md accessibility contract */

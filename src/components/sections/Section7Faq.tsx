@@ -49,7 +49,7 @@ export function Section7Faq() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="w-full relative py-20 sm:py-28 lg:py-32 bg-[#F7F8F3] border-b border-[#E2E6DC] overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#F7F8F3] border-b border-[#E2E6DC] overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         {/* Section Header */}
@@ -61,25 +61,25 @@ export function Section7Faq() {
           </div>
           <h2
             id="faq-heading"
-            className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-[1.15]"
+            className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-[1.18] sm:leading-[1.15]"
           >
             Pertanyaan yang Sering Diajukan
           </h2>
           <p className="text-base sm:text-lg text-[#4A554E] max-w-2xl mx-auto leading-relaxed">
-            Informasi mengenai layanan BumiLoka, paket langganan Rp45.000, batasan asisten AI, dan status pengembangan website.
+            Informasi mengenai layanan BumiLoka, paket langganan Rp45.000/bulan, batasan asisten AI, dan status pengembangan website.
           </p>
         </div>
 
         {/* Filter and Accordion Global Controls */}
-        <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
+        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Category Tabs - smooth touch scrolling on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 w-full sm:w-auto sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+                className={`px-3.5 sm:px-4 py-2 rounded-full text-xs font-medium transition-all shrink-0 min-h-[40px] touch-press ${
                   selectedCategory === cat
                     ? "bg-[#143323] text-[#B6F084] font-semibold shadow-2xs"
                     : "bg-white border border-[#E2E6DC] text-[#4A554E] hover:bg-[#EFECE4]"
@@ -91,11 +91,11 @@ export function Section7Faq() {
           </div>
 
           {/* Expand/Collapse Actions */}
-          <div className="flex items-center gap-2 text-xs">
+          <div className="flex items-center justify-between sm:justify-end gap-2 text-xs w-full sm:w-auto pt-1 sm:pt-0">
             <button
               type="button"
               onClick={expandAll}
-              className="text-[#143323] font-semibold hover:underline px-2 py-1"
+              className="text-[#143323] font-semibold hover:underline px-2 py-1 min-h-[36px] flex items-center"
             >
               Buka Semua
             </button>
@@ -103,7 +103,7 @@ export function Section7Faq() {
             <button
               type="button"
               onClick={collapseAll}
-              className="text-[#68736C] hover:underline px-2 py-1"
+              className="text-[#68736C] hover:underline px-2 py-1 min-h-[36px] flex items-center"
             >
               Tutup Semua
             </button>
@@ -132,7 +132,7 @@ export function Section7Faq() {
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${faq.id}`}
                     id={`faq-question-${faq.id}`}
-                    className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 font-sans text-base font-bold text-[#121A15] focus-visible:outline-2 focus-visible:outline-[#143323] rounded-2xl"
+                    className="w-full text-left p-4 sm:p-6 flex items-start justify-between gap-4 font-sans text-base font-bold text-[#121A15] focus-visible:outline-2 focus-visible:outline-[#143323] rounded-2xl min-h-[52px] active:bg-[#FAF9F5] touch-press"
                   >
                     <span className="flex items-start gap-3">
                       {isDisclaimer ? (
@@ -163,12 +163,12 @@ export function Section7Faq() {
                     id={`faq-answer-${faq.id}`}
                     role="region"
                     aria-labelledby={`faq-question-${faq.id}`}
-                    className="px-5 pb-6 sm:px-6 sm:pb-7 pt-1 text-sm text-[#4A554E] leading-relaxed border-t border-[#E2E6DC]"
+                    className="px-4 pb-5 sm:px-6 sm:pb-7 pt-1 text-sm text-[#4A554E] leading-relaxed border-t border-[#E2E6DC]"
                   >
-                    <p className="pl-8">{faq.answer}</p>
+                    <p className="pl-0 sm:pl-8">{faq.answer}</p>
 
                     {faq.highlightNote && (
-                      <div className="ml-8 mt-3 p-3 rounded-xl bg-[#FAF9F5] border border-[#E2E6DC] text-xs font-medium text-[#B85D2B]">
+                      <div className="mt-3 sm:ml-8 p-3 rounded-xl bg-[#FAF9F5] border border-[#E2E6DC] text-xs font-medium text-[#B85D2B]">
                         {faq.highlightNote}
                       </div>
                     )}

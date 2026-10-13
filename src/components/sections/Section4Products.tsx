@@ -26,14 +26,14 @@ export function Section4Products() {
     <section
       id="produk-layanan"
       aria-labelledby="produk-layanan-heading"
-      className="py-16 md:py-24 bg-[#F7F8F3] border-b border-[#E2E6DC]"
+      className="py-14 sm:py-20 md:py-24 bg-[#F7F8F3] border-b border-[#E2E6DC]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="produk-layanan-heading"
-            className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-tight"
+            className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-[#121A15] tracking-tight leading-[1.18] sm:leading-tight"
           >
             Tiga Layanan Utama BumiLoka
           </h2>
@@ -47,7 +47,7 @@ export function Section4Products() {
           <Info className="w-5 h-5 text-[#1F6E43] shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-xs sm:text-sm text-[#4A554E] leading-relaxed">
             <strong className="text-[#121A15] font-semibold">
-              Pratinjau konsep antarmuka:
+               Pratinjau konsep antarmuka:
             </strong>{" "}
             Tampilan di bawah ini menyajikan rancangan visual dari alur kerja produk BumiLoka di sisi antarmuka depan.
           </p>
@@ -58,7 +58,7 @@ export function Section4Products() {
         {/* ------------------------------------------------------------- */}
         <div
           id="modul-pasar-panen"
-          className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-sm scroll-mt-24 space-y-8"
+          className="p-4 sm:p-8 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-sm scroll-mt-24 space-y-6 sm:space-y-8"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Explanation */}
@@ -158,11 +158,11 @@ export function Section4Products() {
         {/* ------------------------------------------------------------- */}
         <div
           id="modul-manajemen-tanaman"
-          className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-sm scroll-mt-24 space-y-8"
+          className="p-4 sm:p-8 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-sm scroll-mt-24 space-y-6 sm:space-y-8"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Parameter Preview */}
-            <div className="lg:col-span-7 order-2 lg:order-1 bg-[#F7F8F3] rounded-2xl border border-[#E2E6DC] p-5 sm:p-6 space-y-3">
+            <div className="lg:col-span-7 order-2 lg:order-1 bg-[#F7F8F3] rounded-2xl border border-[#E2E6DC] p-4 sm:p-6 space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-[#E2E6DC]">
                 <span className="font-sans text-sm font-bold text-[#121A15]">
                   Pemantauan Meja Tanam &amp; Tandon
@@ -176,7 +176,7 @@ export function Section4Products() {
                 {PLANT_MANAGEMENT_PREVIEWS.map((inst, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-white border border-[#E2E6DC] space-y-2.5"
+                    className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#E2E6DC] space-y-2.5"
                   >
                     <div className="flex items-center justify-between">
                       <div>
@@ -188,7 +188,7 @@ export function Section4Products() {
                         </span>
                       </div>
                       <span
-                        className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${
+                        className={`text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full border ${
                           inst.status.includes("Normal")
                             ? "bg-[#EFECE4] text-[#1F6E43] border-[#E2E6DC]"
                             : "bg-[#FAF9F5] text-[#B85D2B] border-[#E2E6DC]"
@@ -290,7 +290,7 @@ export function Section4Products() {
         {/* ------------------------------------------------------------- */}
         <div
           id="modul-asisten-ai"
-          className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-xs scroll-mt-24 space-y-8"
+          className="p-4 sm:p-8 lg:p-12 rounded-3xl bg-white border border-[#E2E6DC] shadow-xs scroll-mt-24 space-y-6 sm:space-y-8"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Explanation */}
@@ -323,7 +323,7 @@ export function Section4Products() {
             </div>
 
             {/* Right Interactive Q&A Tabs Preview */}
-            <div className="lg:col-span-7 bg-[#F7F8F3] rounded-2xl border border-[#E2E6DC] p-5 sm:p-6 space-y-4">
+            <div className="lg:col-span-7 bg-[#F7F8F3] rounded-2xl border border-[#E2E6DC] p-4 sm:p-6 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-[#E2E6DC]">
                 <span className="font-sans text-sm font-bold text-[#121A15]">
                   Contoh Konsultasi Gejala Kebun
@@ -333,16 +333,16 @@ export function Section4Products() {
                 </span>
               </div>
 
-              {/* Case Selectors */}
-              <div className="flex flex-wrap gap-2">
+              {/* Case Selectors - horizontal touch scrolling on mobile */}
+              <div className="flex gap-2 overflow-x-auto no-scrollbar sm:flex-wrap pb-1 -mx-1 px-1">
                 {AI_SCENARIO_PREVIEWS.map((scenario) => (
                   <button
                     key={scenario.id}
                     type="button"
                     onClick={() => setActiveAiTab(scenario.id)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all shrink-0 min-h-[40px] touch-press ${
                       activeAiTab === scenario.id
-                        ? "bg-[#143323] text-[#B6F084] font-semibold"
+                        ? "bg-[#143323] text-[#B6F084] font-semibold shadow-2xs"
                         : "bg-white border border-[#E2E6DC] text-[#4A554E] hover:bg-[#EFECE4]"
                     }`}
                   >

@@ -8,70 +8,70 @@ export function Section1Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative w-full h-[90vh] min-h-[640px] max-h-[880px] flex flex-col justify-between overflow-hidden bg-[#06180E]"
+      className="relative w-full min-h-[100dvh] flex flex-col justify-between bg-[#06180E] text-white overflow-x-clip"
     >
       {/* ------------------------------------------------------------- */}
       {/* FULL-BLEED PHOTOGRAPHIC BACKGROUND                           */}
       {/* ------------------------------------------------------------- */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
           src="/images/hero-greenhouse-fullbleed.jpg"
           alt="Kebun greenhouse hidroponik modern dengan instalasi talang pipa selada hijau di bawah cahaya alami"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[60%_center] lg:object-center"
+          className="object-cover object-[75%_center] sm:object-[65%_center] md:object-[60%_center] lg:object-center"
         />
 
         {/* High-Contrast Editorial Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06180E]/95 via-[#071F13]/85 md:via-[#071F13]/70 to-[#06180E]/35 lg:to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06180E]/60 via-transparent to-[#06180E]/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06180E]/95 via-[#071F13]/90 sm:via-[#071F13]/85 md:via-[#071F13]/75 to-[#06180E]/50 lg:to-[#06180E]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06180E]/70 via-transparent to-[#06180E]/95" />
       </div>
 
       {/* ------------------------------------------------------------- */}
       {/* MAIN HERO CONTENT LAYER                                       */}
       {/* ------------------------------------------------------------- */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 lg:pt-36 pb-10 sm:pb-14 my-auto">
-        <div className="max-w-3xl space-y-6 sm:space-y-7">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 my-auto">
+        <div className="max-w-3xl space-y-4 sm:space-y-6">
           {/* Subtle Clean Category Label */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 border border-white/20 backdrop-blur-xs">
-            <span className="font-mono text-xs font-medium text-[#B6F084] tracking-wide">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 border border-white/20 backdrop-blur-xs">
+            <span className="font-mono text-[11px] sm:text-xs font-semibold text-[#B6F084] tracking-wide uppercase">
               {HERO_CONTENT.label}
             </span>
           </div>
 
-          {/* Primary Benefit-Driven Headline */}
+          {/* Primary Benefit-Driven Headline (Fluid scale for small screens) */}
           <h1
             id="hero-heading"
-            className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] sm:leading-[1.08] text-balance"
+            className="font-sans text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] sm:leading-[1.12] lg:leading-[1.08] text-balance"
           >
             {HERO_CONTENT.headline}
           </h1>
 
-          {/* Concise Supporting Copy (1-2 sentences) */}
-          <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed font-normal max-w-2xl">
+          {/* Concise Supporting Copy */}
+          <p className="text-sm sm:text-base lg:text-lg text-white/85 leading-relaxed font-normal max-w-2xl">
             {HERO_CONTENT.subheadline}
           </p>
 
-          {/* Clean Focused CTA Buttons */}
-          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+          {/* Redesigned CTAs: Dominant primary action, restrained secondary action */}
+          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5">
             <a
               href={HERO_CONTENT.primaryCta.href}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#B6F084] text-[#092215] font-bold text-base hover:bg-[#C7F69B] transition-all shadow-xl hover:shadow-2xl hover:scale-[1.01] group"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 min-h-[46px] rounded-xl sm:rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm sm:text-base hover:bg-[#C7F69B] active:scale-[0.98] transition-all shadow-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white group"
             >
               <span>{HERO_CONTENT.primaryCta.label}</span>
               <ArrowRight
-                className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
               />
             </a>
 
             <a
               href={HERO_CONTENT.secondaryCta.href}
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-black/35 hover:bg-black/50 border border-white/25 text-white font-medium text-base transition-all backdrop-blur-xs"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[46px] rounded-xl sm:rounded-full bg-white/10 hover:bg-white/15 active:scale-[0.98] border border-white/20 text-white font-medium text-sm sm:text-base transition-all backdrop-blur-xs focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
             >
               <span>{HERO_CONTENT.secondaryCta.label}</span>
-              <ArrowDownRight className="w-5 h-5 text-white/80" aria-hidden="true" />
+              <ArrowDownRight className="w-4 h-4 text-white/80" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -80,14 +80,14 @@ export function Section1Hero() {
       {/* ------------------------------------------------------------- */}
       {/* BOTTOM TRANSLUCENT STRIP: THREE FOCAL PILLARS                */}
       {/* ------------------------------------------------------------- */}
-      <div className="relative z-10 w-full border-t border-white/15 bg-gradient-to-r from-[#06180E]/90 via-[#071F13]/80 to-[#06180E]/70 backdrop-blur-xs py-4 sm:py-5">
+      <div className="relative z-10 w-full border-t border-white/15 bg-[#06180E]/80 backdrop-blur-md py-3.5 sm:py-4 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+          <div className="flex md:grid md:grid-cols-3 gap-2.5 sm:gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0">
             {HERO_CONTENT.pillars.map((pillar) => (
               <a
                 key={pillar.title}
                 href={pillar.href}
-                className="group flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-left"
+                className="snap-start shrink-0 w-[240px] sm:w-[270px] md:w-auto group flex items-center justify-between p-3 sm:p-3.5 rounded-xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/10 transition-all text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
               >
                 <div>
                   <span className="block text-xs sm:text-sm font-bold text-white group-hover:text-[#B6F084] transition-colors">
@@ -97,7 +97,7 @@ export function Section1Hero() {
                     {pillar.summary}
                   </p>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-white/60 group-hover:text-[#B6F084] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-3" />
+                <ArrowUpRight className="w-4 h-4 text-white/60 group-hover:text-[#B6F084] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
               </a>
             ))}
           </div>

@@ -37,9 +37,9 @@ export function Section5SocialProof() {
     <section
       id="bukti-konsep"
       aria-labelledby="bukti-konsep-heading"
-      className="w-full relative py-20 sm:py-28 lg:py-32 bg-[#071F13] text-white border-b border-white/10 overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#071F13] text-white border-b border-white/10 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-xs">
@@ -49,7 +49,7 @@ export function Section5SocialProof() {
           </div>
           <h2
             id="bukti-konsep-heading"
-            className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
+            className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15]"
           >
             Bagaimana BumiLoka Bekerja di Kebun Anda
           </h2>
@@ -88,7 +88,7 @@ export function Section5SocialProof() {
                   id={`journey-tab-${idx}`}
                   type="button"
                   onClick={() => setActiveStageIdx(idx)}
-                  className={`p-3.5 sm:p-4 rounded-2xl text-left transition-all flex flex-col justify-between ${
+                  className={`p-3.5 sm:p-4 rounded-2xl text-left transition-all flex flex-col justify-between min-h-[58px] touch-press ${
                     isSelected
                       ? "bg-[#B6F084] text-[#092215] font-bold shadow-md"
                       : "bg-white/10 text-white/90 border border-white/15 hover:bg-white/20"
@@ -210,7 +210,7 @@ export function Section5SocialProof() {
             {farmerPersonas.map((persona, pIdx) => (
               <div
                 key={pIdx}
-                className="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-md space-y-3"
+                className="p-5 sm:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-md space-y-3"
               >
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="font-sans font-bold text-base text-white">
