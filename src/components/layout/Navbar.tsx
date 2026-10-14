@@ -65,14 +65,14 @@ export function Navbar() {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 motion-reduce:transition-none ${
           isScrolled
-            ? "pt-2 sm:pt-3 px-3 sm:px-6 pointer-events-none"
-            : "pt-3 sm:pt-5 pb-3 sm:pb-4 px-3 sm:px-6 lg:px-8 bg-transparent"
+            ? "pt-2 sm:pt-3 px-4 sm:px-6 pointer-events-none"
+            : "pt-3 sm:pt-5 pb-3 sm:pb-4 px-4 sm:px-6 lg:px-8 bg-transparent"
         }`}
       >
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-300 motion-reduce:transition-none pointer-events-auto ${
             isScrolled
-              ? "max-w-6xl px-3 sm:px-5 py-1.5 sm:py-2 rounded-2xl lg:rounded-full bg-white/95 dark:bg-[#071F13]/95 backdrop-blur-md border border-[#E2E6DC] dark:border-white/15 shadow-lg shadow-[#06180E]/5"
+              ? "max-w-6xl px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-2xl lg:rounded-full bg-white/95 dark:bg-[#071F13]/95 backdrop-blur-md border border-[#E2E6DC] dark:border-white/15 shadow-lg shadow-[#06180E]/5"
               : "max-w-7xl px-0 py-0 bg-transparent border-transparent"
           }`}
         >
