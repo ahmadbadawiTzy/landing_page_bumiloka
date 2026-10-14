@@ -92,7 +92,6 @@ export interface TranslationDictionary {
     themeNames: {
       light: string;
       dark: string;
-      system: string;
     };
     languageNames: {
       id: string;

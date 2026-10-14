@@ -11,7 +11,6 @@ export const idDictionary: TranslationDictionary = {
     themeNames: {
       light: "Tema Terang",
       dark: "Tema Gelap",
-      system: "Tema Sistem",
     },
     languageNames: {
       id: "Bahasa Indonesia",

@@ -3,7 +3,7 @@
 import React from "react";
 import { useTheme, ThemeMode } from "@/theme/ThemeContext";
 import { useLanguage } from "@/i18n/context";
-import { Sun, Moon, Monitor } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
 interface ThemeToggleProps {
   className?: string;
@@ -28,11 +28,6 @@ export function ThemeToggle({
       label: t.common.themeNames.dark,
       icon: <Moon className="w-3.5 h-3.5" aria-hidden="true" />,
     },
-    {
-      mode: "system",
-      label: t.common.themeNames.system,
-      icon: <Monitor className="w-3.5 h-3.5" aria-hidden="true" />,
-    },
   ];
 
   if (variant === "mobile") {
@@ -51,7 +46,7 @@ export function ThemeToggle({
               aria-pressed={theme === opt.mode}
               aria-label={opt.label}
               title={opt.label}
-              className={`p-2 rounded-lg transition-all min-h-[36px] min-w-[36px] flex items-center justify-center ${
+              className={`p-2 rounded-lg transition-all min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
                 theme === opt.mode
                   ? "bg-[#143323] dark:bg-[#B6F084] text-[#B6F084] dark:text-[#092215] shadow-xs"
                   : "text-[#4A554E] dark:text-white/70 hover:bg-[#EFECE4] dark:hover:bg-white/10"

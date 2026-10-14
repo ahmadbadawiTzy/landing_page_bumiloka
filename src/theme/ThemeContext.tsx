@@ -1,13 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { resolveThemePreference, type ResolvedTheme } from "./timeTheme";
 
-export type ThemeMode = "light" | "dark" | "system";
-export type ResolvedTheme = "light" | "dark";
+export type ThemeMode = ResolvedTheme;
+export type { ResolvedTheme };
 
 interface ThemeContextValue {
   theme: ThemeMode;
-  resolvedTheme: ResolvedTheme;
   setTheme: (theme: ThemeMode) => void;
 }
 
@@ -15,71 +15,43 @@ const THEME_STORAGE_KEY = "bumiloka-theme";
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function getSystemTheme(): ResolvedTheme {
-  if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-function applyThemeClass(resolved: ResolvedTheme) {
+function applyThemeClass(theme: ThemeMode) {
   if (typeof document === "undefined") return;
-  const root = document.documentElement;
-  if (resolved === "dark") {
-    root.classList.add("dark");
-  } else {
-    root.classList.remove("dark");
-  }
+  document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeMode>("system");
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
+  // "light" is the SSR-safe placeholder so server and client render the same
+  // markup. The inline anti-FOUC script in `src/app/layout.tsx` already
+  // applied the correct `.dark` class before first paint, so there is no
+  // flash. The mount effect below syncs state with the stored/time-based
+  // theme (legacy stored "system" values resolve to the time-based default).
+  const [theme, setThemeState] = useState<ThemeMode>("light");
 
   useEffect(() => {
+    let stored: string | null = null;
     try {
-      const saved = localStorage.getItem(THEME_STORAGE_KEY) as ThemeMode | null;
-      const initialMode = saved === "light" || saved === "dark" || saved === "system" ? saved : "system";
-      setThemeState(initialMode);
-
-      const resolved = initialMode === "system" ? getSystemTheme() : initialMode;
-      setResolvedTheme(resolved);
-      applyThemeClass(resolved);
+      stored = localStorage.getItem(THEME_STORAGE_KEY);
     } catch {
-      const resolved = getSystemTheme();
-      setResolvedTheme(resolved);
-      applyThemeClass(resolved);
+      // localStorage unavailable — fall through to the time-based default
     }
+    const initialTheme = resolveThemePreference(stored);
+    setThemeState(initialTheme);
+    applyThemeClass(initialTheme);
   }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = () => {
-      if (theme === "system") {
-        const nextResolved = mediaQuery.matches ? "dark" : "light";
-        setResolvedTheme(nextResolved);
-        applyThemeClass(nextResolved);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [theme]);
 
   const setTheme = (newTheme: ThemeMode) => {
     setThemeState(newTheme);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, newTheme);
     } catch {
-      // ignore
+      // ignore — the theme still applies for this session
     }
-
-    const nextResolved = newTheme === "system" ? getSystemTheme() : newTheme;
-    setResolvedTheme(nextResolved);
-    applyThemeClass(nextResolved);
+    applyThemeClass(newTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, resolvedTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

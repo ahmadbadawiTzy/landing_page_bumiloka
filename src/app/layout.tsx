@@ -172,11 +172,21 @@ export default function RootLayout({
         {/* Anti-FOUC theme & lang bootstrap script */}
         <script
           dangerouslySetInnerHTML={{
+            // Keep the time schedule in sync with src/theme/timeTheme.ts
+            // (light 06:00–17:59 local, dark 18:00–05:59 local).
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('bumiloka-theme') || 'system';
-                  var isDark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  var t = localStorage.getItem('bumiloka-theme');
+                  var isDark;
+                  if (t === 'dark') {
+                    isDark = true;
+                  } else if (t === 'light') {
+                    isDark = false;
+                  } else {
+                    var hour = new Date().getHours();
+                    isDark = !(hour >= 6 && hour < 18);
+                  }
                   if (isDark) {
                     document.documentElement.classList.add('dark');
                   } else {

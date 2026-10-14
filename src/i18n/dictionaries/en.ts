@@ -11,7 +11,6 @@ export const enDictionary: TranslationDictionary = {
     themeNames: {
       light: "Light Theme",
       dark: "Dark Theme",
-      system: "System Theme",
     },
     languageNames: {
       id: "Bahasa Indonesia",
