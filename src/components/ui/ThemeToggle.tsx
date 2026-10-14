@@ -15,7 +15,7 @@ export function ThemeToggle({
   variant = "desktop",
 }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const options: Array<{ mode: ThemeMode; label: string; icon: React.ReactNode }> = [
     {
@@ -32,12 +32,16 @@ export function ThemeToggle({
 
   if (variant === "mobile") {
     return (
-      <div className={`flex items-center justify-between p-2 rounded-xl bg-white/60 dark:bg-white/5 border border-[#E2E6DC] dark:border-white/10 ${className}`}>
+      <div className={`flex items-center justify-between p-2.5 rounded-xl bg-[#F7F8F3] dark:bg-white/5 border border-[#E2E6DC] dark:border-white/10 ${className}`}>
         <span className="text-xs font-medium text-[#121A15] dark:text-white flex items-center gap-2">
-          <Sun className="w-3.5 h-3.5 text-[#1F6E43] dark:text-[#B6F084]" aria-hidden="true" />
-          <span>Tema / Theme</span>
+          {theme === "dark" ? (
+            <Moon className="w-4 h-4 text-[#1F6E43] dark:text-[#B6F084]" aria-hidden="true" />
+          ) : (
+            <Sun className="w-4 h-4 text-[#1F6E43] dark:text-[#B6F084]" aria-hidden="true" />
+          )}
+          <span>{locale === "id" ? "Tema Tampilan" : "Theme"}</span>
         </span>
-        <div className="flex items-center gap-1" role="group" aria-label="Pilih tema tampilan">
+        <div className="flex items-center gap-1.5" role="group" aria-label="Pilih tema tampilan / Select theme">
           {options.map((opt) => (
             <button
               key={opt.mode}
@@ -46,9 +50,9 @@ export function ThemeToggle({
               aria-pressed={theme === opt.mode}
               aria-label={opt.label}
               title={opt.label}
-              className={`p-2 rounded-lg transition-all min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
+              className={`p-2 rounded-lg transition-all min-h-[40px] min-w-[40px] flex items-center justify-center focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
                 theme === opt.mode
-                  ? "bg-[#143323] dark:bg-[#B6F084] text-[#B6F084] dark:text-[#092215] shadow-xs"
+                  ? "bg-[#143323] dark:bg-[#B6F084] text-[#B6F084] dark:text-[#092215] shadow-xs font-semibold"
                   : "text-[#4A554E] dark:text-white/70 hover:bg-[#EFECE4] dark:hover:bg-white/10"
               }`}
             >

@@ -17,18 +17,18 @@ export function LanguageToggle({
 
   if (variant === "mobile") {
     return (
-      <div className={`flex items-center justify-between p-2 rounded-xl bg-white/60 dark:bg-white/5 border border-[#E2E6DC] dark:border-white/10 ${className}`}>
+      <div className={`flex items-center justify-between p-2.5 rounded-xl bg-[#F7F8F3] dark:bg-white/5 border border-[#E2E6DC] dark:border-white/10 ${className}`}>
         <span className="text-xs font-medium text-[#121A15] dark:text-white flex items-center gap-2">
-          <Globe className="w-3.5 h-3.5 text-[#1F6E43] dark:text-[#B6F084]" aria-hidden="true" />
-          <span>Bahasa / Language</span>
+          <Globe className="w-4 h-4 text-[#1F6E43] dark:text-[#B6F084]" aria-hidden="true" />
+          <span>{locale === "id" ? "Pilihan Bahasa" : "Language"}</span>
         </span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5" role="group" aria-label="Pilih bahasa / Select language">
           <button
             type="button"
             onClick={() => setLocale("id")}
             aria-pressed={locale === "id"}
             aria-label={t.common.languageNames.id}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all min-h-[36px] ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all min-h-[40px] min-w-[42px] flex items-center justify-center focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
               locale === "id"
                 ? "bg-[#143323] dark:bg-[#B6F084] text-[#B6F084] dark:text-[#092215] shadow-xs"
                 : "text-[#4A554E] dark:text-white/70 hover:bg-[#EFECE4] dark:hover:bg-white/10"
@@ -41,7 +41,7 @@ export function LanguageToggle({
             onClick={() => setLocale("en")}
             aria-pressed={locale === "en"}
             aria-label={t.common.languageNames.en}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all min-h-[36px] ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all min-h-[40px] min-w-[42px] flex items-center justify-center focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
               locale === "en"
                 ? "bg-[#143323] dark:bg-[#B6F084] text-[#B6F084] dark:text-[#092215] shadow-xs"
                 : "text-[#4A554E] dark:text-white/70 hover:bg-[#EFECE4] dark:hover:bg-white/10"

@@ -108,9 +108,16 @@ export function Section3Solutions() {
                 </div>
 
                 <div className="mt-5 space-y-1.5">
-                  <span className="text-xs text-[#B6F084] font-semibold block">
-                    {solution.capabilityName}
-                  </span>
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <span className="text-xs text-[#B6F084] font-semibold block">
+                      {solution.capabilityName}
+                    </span>
+                    {solution.accessBadge && (
+                      <span className="inline-block px-2.5 py-0.5 text-[10px] font-mono font-semibold rounded-full bg-white/10 text-[#B6F084] border border-white/20">
+                        {solution.accessBadge}
+                      </span>
+                    )}
+                  </div>
                   <h3 className="font-sans text-xl font-bold text-white leading-snug">
                     {solution.headline}
                   </h3>

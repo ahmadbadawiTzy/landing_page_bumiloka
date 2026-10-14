@@ -95,6 +95,11 @@ export function Section1Hero() {
                 className="snap-start shrink-0 w-[240px] sm:w-[270px] md:w-auto group flex items-center justify-between p-3 sm:p-3.5 rounded-xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/10 transition-all text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
               >
                 <div>
+                  {pillar.accessBadge && (
+                    <span className="inline-block px-1.5 py-0.5 mb-1 text-[9px] font-mono font-medium rounded bg-white/15 text-[#B6F084] border border-white/20">
+                      {pillar.accessBadge}
+                    </span>
+                  )}
                   <span className="block text-xs sm:text-sm font-bold text-white group-hover:text-[#B6F084] transition-colors">
                     {pillar.title}
                   </span>

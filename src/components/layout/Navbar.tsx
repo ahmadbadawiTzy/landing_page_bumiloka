@@ -122,25 +122,34 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Right Hamburger Button: Exactly ONE control, comfortable 44x44px touch target */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-navigation-panel"
-            aria-label={mobileMenuOpen ? t.nav.menuCloseAria : t.nav.menuOpenAria}
-            className={`flex lg:hidden items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl transition-all active:scale-95 touch-press focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
-              isScrolled
-                ? "border border-[#DCD8CE] dark:border-white/15 bg-white/95 dark:bg-[#0C1F15] text-[#161D19] dark:text-white hover:bg-[#EFECE4] dark:hover:bg-white/10 shadow-2xs"
-                : "border border-white/25 bg-black/40 text-white backdrop-blur-xs hover:bg-black/60 shadow-2xs"
-            }`}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" aria-hidden="true" />
-            ) : (
-              <Menu className="w-5 h-5" aria-hidden="true" />
-            )}
-          </button>
+          {/* Mobile & Tablet Controls Cluster */}
+          <div className="flex lg:hidden items-center gap-2">
+            {/* Tablet Direct Navbar Controls: Shown on md: to lg: viewports where navbar space is plenty */}
+            <div className="hidden md:flex items-center gap-2">
+              <LanguageToggle variant="desktop" />
+              <ThemeToggle variant="desktop" />
+            </div>
+
+            {/* Mobile/Tablet Right Hamburger Button: Exactly ONE control on mobile, comfortable 44x44px touch target */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-panel"
+              aria-label={mobileMenuOpen ? t.nav.menuCloseAria : t.nav.menuOpenAria}
+              className={`flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl transition-all active:scale-95 touch-press focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
+                isScrolled
+                  ? "border border-[#DCD8CE] dark:border-white/15 bg-white/95 dark:bg-[#0C1F15] text-[#161D19] dark:text-white hover:bg-[#EFECE4] dark:hover:bg-white/10 shadow-2xs"
+                  : "border border-white/25 bg-black/40 text-white backdrop-blur-xs hover:bg-black/60 shadow-2xs"
+              }`}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Panel */}
@@ -171,6 +180,29 @@ export function Navbar() {
                   />
                 </a>
               ))}
+
+              {/* Visual Divider */}
+              <div className="my-2.5 border-t border-[#E2E6DC] dark:border-white/10" />
+
+              {/* Mobile-Only Controls Section: Language & Theme
+                  Hidden on md: (tablet) because tablet displays them directly on the navbar,
+                  preventing duplicate controls from showing simultaneously. */}
+              <div className="md:hidden py-1 space-y-2">
+                <LanguageToggle variant="mobile" />
+                <ThemeToggle variant="mobile" />
+              </div>
+
+              {/* Mobile Primary CTA */}
+              <div className="pt-2">
+                <a
+                  href="#langganan"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#B6F084] text-[#092215] font-bold text-sm hover:bg-[#C7F69B] active:scale-[0.98] transition-all shadow-xs touch-press min-h-[44px] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
+                >
+                  <span>{t.nav.mobileCta}</span>
+                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                </a>
+              </div>
             </nav>
           </div>
         )}

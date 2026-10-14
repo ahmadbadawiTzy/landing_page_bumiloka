@@ -4,8 +4,6 @@ import React from "react";
 import { useLanguage } from "@/i18n/context";
 import { SUBSCRIPTION_CONTACT } from "@/data/landing-content";
 import { BumiLokaLogo } from "@/components/brand/BumiLokaLogo";
-import { LanguageToggle } from "@/components/ui/LanguageToggle";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MessageCircle, Mail } from "lucide-react";
 
 export function Footer() {
@@ -21,8 +19,15 @@ export function Footer() {
             <p className="text-sm text-[#4A554E] dark:text-[#A4B3A8] leading-relaxed max-w-sm">
               {t.footer.tagline}
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#EFECE4] dark:bg-[#132A1C] border border-[#E2E6DC] dark:border-[#1F452E] text-xs text-[#143323] dark:text-[#B6F084] font-medium">
-              <span>{t.footer.subscriptionBadge}</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#EFECE4] dark:bg-[#132A1C] border border-[#E2E6DC] dark:border-[#1F452E] text-xs text-[#143323] dark:text-[#B6F084] font-medium">
+                <span>{t.footer.subscriptionBadge}</span>
+              </div>
+              {t.footer.marketplaceBadge && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-800 dark:text-emerald-300 font-medium">
+                  <span>{t.footer.marketplaceBadge}</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -82,15 +87,11 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Editorial Bar with Alternative Access Controls for All Viewports */}
-        <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#68736C] dark:text-[#8E9F93]">
+        {/* Bottom Editorial Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#68736C] dark:text-[#8E9F93]">
           <p>
             © {new Date().getFullYear()} {t.footer.copyrightNotice}
           </p>
-          <div className="flex items-center gap-2">
-            <LanguageToggle variant="desktop" />
-            <ThemeToggle variant="desktop" />
-          </div>
           <p className="font-mono text-[11px] text-[#4A554E] dark:text-[#A4B3A8]">
             {t.footer.motto}
           </p>

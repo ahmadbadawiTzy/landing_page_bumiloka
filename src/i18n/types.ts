@@ -18,6 +18,7 @@ export interface CustomerProblemTranslation {
 export interface SolutionBenefitTranslation {
   id: string;
   capabilityName: string;
+  accessBadge: string;
   solvesProblem: string;
   headline: string;
   benefitSummary: string;
@@ -114,6 +115,7 @@ export interface TranslationDictionary {
     secondaryCta: string;
     pillars: Array<{
       title: string;
+      accessBadge?: string;
       summary: string;
       href: string;
     }>;
@@ -144,10 +146,20 @@ export interface TranslationDictionary {
       bold: string;
       text: string;
     };
+    accordionLabels: {
+      expandService: string;
+      collapseService: string;
+      serviceCounter: string;
+      previous: string;
+      next: string;
+      openBadge: string;
+    };
     marketplace: {
       badge: string;
+      accessBadge: string;
       title: string;
       description: string;
+      freeNotice: string;
       photoCaption: string;
       checklist: string[];
       tableTitle: string;
@@ -156,6 +168,7 @@ export interface TranslationDictionary {
     };
     management: {
       badge: string;
+      accessBadge: string;
       title: string;
       description: string;
       photoCaption: string;
@@ -170,8 +183,26 @@ export interface TranslationDictionary {
     };
     aiAssistant: {
       badge: string;
+      accessBadge: string;
       title: string;
       description: string;
+      photoFeature: {
+        badge: string;
+        includedTag: string;
+        title: string;
+        description: string;
+        stepsHeading: string;
+        steps: Array<{ step: string; title: string; desc: string }>;
+        sampleAnalysis: {
+          badge: string;
+          crop: string;
+          diagnosis: string;
+          confidence: string;
+          symptoms: string;
+          recommendations: string[];
+          limitationNote: string;
+        };
+      };
       cautionBadge: string;
       cautionText: string;
       tableTitle: string;
@@ -205,6 +236,10 @@ export interface TranslationDictionary {
     planDescription: string;
     featuresLabel: string;
     features: string[];
+    marketplaceFreeNote: {
+      title: string;
+      description: string;
+    };
     howToSubscribeLabel: string;
     howToSubscribeText: string;
     whatsappCta: string;
@@ -231,6 +266,7 @@ export interface TranslationDictionary {
   footer: {
     tagline: string;
     subscriptionBadge: string;
+    marketplaceBadge: string;
     contactHeading: string;
     whatsappContactNote: string;
     emailContactNote: string;

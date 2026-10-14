@@ -142,6 +142,23 @@ export function Section6Offer() {
               </p>
             </div>
 
+            {/* Marketplace Free Notice */}
+            {t.offer.marketplaceFreeNote && (
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#092215]/80 border border-emerald-500/30 flex items-start gap-3">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0 mt-0.5">
+                  MARKETPLACE
+                </span>
+                <div className="space-y-1">
+                  <span className="text-xs font-bold text-[#B6F084] block">
+                    {t.offer.marketplaceFreeNote.title}
+                  </span>
+                  <p className="text-xs text-white/90 leading-relaxed">
+                    {t.offer.marketplaceFreeNote.description}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Honest Disclaimer */}
             <div className="pt-2">
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">

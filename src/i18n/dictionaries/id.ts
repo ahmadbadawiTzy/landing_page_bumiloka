@@ -35,26 +35,29 @@ export const idDictionary: TranslationDictionary = {
     homeAria: "BumiLoka — Kembali ke Beranda",
   },
   hero: {
-    label: "Platform Budidaya Hidroponik",
+    label: "Platform Budidaya & Marketplace Hidroponik",
     headline: "Kelola Kebun Lebih Rapi, Tangani Gejala Daun, dan Pasarkan Panen Lebih Pasti",
     subheadline:
-      "BumiLoka membantu petani hidroponik memantau kondisi air tandon harian, memahami penyebab kendala tanaman lewat asisten AI, serta mempertemukan hasil panen segar dengan calon pembeli sebelum hari potong.",
-    primaryCta: "Lihat Layanan BumiLoka",
-    secondaryCta: "Langganan Rp45.000/bln",
+      "BumiLoka menyediakan Marketplace hasil panen yang dapat diakses gratis, serta paket terpadu Manajemen Tanaman dan AI Assistant untuk pemantauan nutrisi harian dan diagnosis kendala tanaman.",
+    primaryCta: "Lihat Layanan & Marketplace",
+    secondaryCta: "Paket Langganan Rp45.000/bln",
     pillars: [
       {
-        title: "Pengelolaan Budidaya",
+        title: "Manajemen Tanaman",
+        accessBadge: "Berlangganan",
         summary: "Pantau pH, PPM, dan umur tanaman di setiap meja instalasi.",
         href: "#modul-manajemen-tanaman",
       },
       {
         title: "Marketplace Hasil Panen",
-        summary: "Buka pra-pesan sayuran sebelum tanggal potong tiba.",
+        accessBadge: "Akses Gratis",
+        summary: "Jelajahi dan buka pra-pesan sayuran tanpa biaya langganan.",
         href: "#modul-pasar-panen",
       },
       {
         title: "Asisten AI Budidaya",
-        summary: "Panduan praktis saat menemukan daun kuning atau akar bermasalah.",
+        accessBadge: "Berlangganan",
+        summary: "Panduan gejala daun dan diagnosis foto terintegrasi.",
         href: "#modul-asisten-ai",
       },
     ],
@@ -84,7 +87,7 @@ export const idDictionary: TranslationDictionary = {
           "Mengelola banyak meja tanam menuntut pengecekan pH air, kepekatan nutrisi (PPM), dan suhu tandon setiap hari. Tanpa pencatatan yang teratur, perubahan kualitas air mudah terlewat dan sulit dievaluasi saat hasil panen menurun.",
         fieldImpact:
           "Pertumbuhan sayuran antar meja menjadi tidak seragam dan akar rentan stres akibat kepekatan larutan yang tidak stabil.",
-        relatedCapability: "Solusi: Pengelolaan Budidaya",
+        relatedCapability: "Solusi: Manajemen Tanaman",
       },
       {
         id: "masalah-panduan",
@@ -102,27 +105,28 @@ export const idDictionary: TranslationDictionary = {
     badge: "Solusi & Manfaat",
     heading: "Tiga Solusi Terpadu untuk Menjawab Kendala Kebun",
     description:
-      "BumiLoka menghubungkan pemantauan nutrisi harian di instalasi kebun dengan jalur penjualan langsung ke pembeli. Setiap modul dirancang untuk mengatasi satu titik kritis dalam siklus budidaya hidroponik.",
+      "BumiLoka menghubungkan pemantauan nutrisi harian di instalasi kebun dengan jalur penjualan langsung ke pembeli. Setiap layanan dirancang untuk mengatasi satu titik kritis dalam siklus budidaya hidroponik.",
     keyPoints: [
-      "Kepastian Pasar: Promosi jadwal panen sebelum hari potong tiba.",
-      "Keteraturan Tandon: Pencatatan pH dan PPM mencegah tanaman kekurangan nutrisi.",
-      "Asisten AI: Panduan langkah pemeriksaan awal saat daun menunjukkan gejala kendala.",
+      "Marketplace Terbuka: Jelajahi sayuran panen dan buka pra-pesan gratis tanpa langganan.",
+      "Keteraturan Tandon: Pencatatan pH dan PPM per meja instalasi dalam paket langganan.",
+      "Asisten AI Terintegrasi: Konsultasi budidaya dan diagnosis foto tanpa biaya terpisah.",
     ],
-    mainCta: "Lihat Pratinjau Tiga Modul",
+    mainCta: "Lihat Pratinjau Tiga Layanan",
     photoCaptionTitle: "Dari Semai hingga Panen Terjual",
     photoCaptionText: "Menghubungkan ketertiban teknis budidaya dengan kepastian pembeli",
     outcomesLabel: "Manfaat bagi petani:",
-    cardPreviewLink: "Lihat Pratinjau Modul",
+    cardPreviewLink: "Lihat Pratinjau Layanan",
     items: [
       {
         id: "solusi-pasar-panen",
         capabilityName: "Marketplace Hasil Panen",
+        accessBadge: "Akses Gratis",
         solvesProblem: "Kepastian Penjualan",
-        headline: "Buka Pra-Pesan Sayuran Sebelum Hari Potong",
+        headline: "Buka Pra-Pesan Sayuran Tanpa Biaya Berlangganan",
         benefitSummary:
-          "Publikasikan jadwal panen dan perkiraan jumlah sayuran beberapa hari lebih awal agar calon pembeli di sekitar Anda dapat memesan sebelum sayuran dipetik.",
+          "Jelajahi hasil panen segar atau buka jadwal pra-pesan beberapa hari sebelum panen. Layanan marketplace dapat diakses gratis tanpa perlu membeli paket langganan.",
         concreteOutcomes: [
-          "Tampilkan jenis sayuran, metode tanam (NFT, DFT, atau Rakit Apung), dan tanggal siap panen.",
+          "Jelajahi jenis sayuran, metode tanam (NFT, DFT, atau Rakit Apung), dan tanggal siap panen tanpa biaya langganan.",
           "Bantu pelanggan rumah tangga, katering, dan pedagang lokal memesan sayuran segar langsung dari kebun.",
           "Jaga ritme tanam tetap lancar karena hasil panen sudah memiliki pembeli yang jelas.",
         ],
@@ -130,7 +134,8 @@ export const idDictionary: TranslationDictionary = {
       },
       {
         id: "solusi-manajemen-tanaman",
-        capabilityName: "Pengelolaan Budidaya",
+        capabilityName: "Manajemen Tanaman",
+        accessBadge: "Paket Berlangganan",
         solvesProblem: "Keteraturan Pemantauan",
         headline: "Catat pH, PPM, dan Umur Tanaman dalam Satu Tempat",
         benefitSummary:
@@ -145,13 +150,14 @@ export const idDictionary: TranslationDictionary = {
       {
         id: "solusi-asisten-ai",
         capabilityName: "Asisten AI Budidaya",
-        solvesProblem: "Panduan Penanganan",
-        headline: "Pahami Gejala Daun dan Langkah Pengecekan Awal",
+        accessBadge: "Paket Berlangganan",
+        solvesProblem: "Panduan & Diagnosis",
+        headline: "Pahami Gejala Daun & Diagnosis Awal dari Foto",
         benefitSummary:
-          "Ruang tanya-jawab terarah untuk membantu Anda memeriksa faktor lingkungan dan nutrisi yang menyebabkan gangguan pada tanaman secara bertahap.",
+          "Ruang tanya-jawab terarah untuk membantu Anda memeriksa faktor lingkungan dan nutrisi, serta kemampuan diagnosis awal penyakit dari unggahan foto.",
         concreteOutcomes: [
           "Uraikan gejala fisik tanaman menjadi daftar periksa: suhu air, sirkulasi udara, pH, dan kepekatan larutan.",
-          "Berikan rekomendasi takaran nutrisi dan batas aman yang sesuai untuk jenis sayuran daun.",
+          "Diagnosis visual awal penyakit atau gangguan daun melalui foto dengan indikasi tingkat keyakinan.",
           "Sertakan pengingat jujur kapan suatu gejala membutuhkan bantuan langsung dari ahli agronomi.",
         ],
         targetAnchor: "#modul-asisten-ai",
@@ -166,16 +172,27 @@ export const idDictionary: TranslationDictionary = {
       bold: "Pratinjau konsep antarmuka:",
       text: "Tampilan di bawah ini menyajikan rancangan visual dari alur kerja produk BumiLoka di sisi antarmuka depan.",
     },
+    accordionLabels: {
+      expandService: "Buka rincian layanan",
+      collapseService: "Tutup rincian layanan",
+      serviceCounter: "Layanan",
+      previous: "Layanan Sebelumnya",
+      next: "Layanan Berikutnya",
+      openBadge: "Sedang Dibuka",
+    },
     marketplace: {
       badge: "Marketplace Hasil Panen",
+      accessBadge: "Akses Gratis (Tanpa Langganan)",
       title: "Buka Pra-Pesan Sayuran Sebelum Hari Potong",
       description:
-        "Bantu pembeli memesan sayuran segar sebelum waktu panen tiba. Anda dapat membagikan profil komoditas, perkiraan tanggal petik, dan metode tanam secara transparan kepada calon pembeli.",
+        "Bantu pembeli menjelajahi sayuran segar dan memesan sebelum waktu panen tiba. Anda dapat membagikan profil komoditas, perkiraan tanggal petik, dan metode tanam secara transparan tanpa kewajiban berlangganan.",
+      freeNotice:
+        "Layanan marketplace terbuka gratis untuk dijelajahi oleh siapa saja tanpa biaya langganan. Pembuatan akun hanya diperlukan jika Anda ingin mendaftarkan kebun dan kuota panen, terpisah dari kewajiban berlangganan paket berbayar.",
       photoCaption: "Sayuran segar berkualitas prima siap distribusi",
       checklist: [
-        "Katalog komoditas sayuran (Selada, Pakcoy, Kale)",
+        "Akses gratis untuk menjelajahi katalog komoditas (Selada, Pakcoy, Kale)",
         "Jadwal tanggal panen untuk pemesanan lebih awal (pre-order)",
-        "Informasi metode tanam (NFT, DFT, Rakit Apung)",
+        "Informasi metode tanam (NFT, DFT, Rakit Apung) dan kontak kebun",
       ],
       tableTitle: "Daftar Batch Panen Terjadwal",
       uiBadge: "Pratinjau UI",
@@ -210,7 +227,8 @@ export const idDictionary: TranslationDictionary = {
       ],
     },
     management: {
-      badge: "Pengelolaan Budidaya",
+      badge: "Manajemen Tanaman",
+      accessBadge: "Paket Berlangganan (Rp45.000/bln)",
       title: "Pantau Kondisi Tandon dan Umur Tanaman Harian",
       description:
         "Ketahui umur tanaman (HST), nilai pH, kepekatan nutrisi PPM, dan jadwal pemeliharaan tandon dalam satu tempat kerja. Anda tidak perlu lagi mengandalkan ingatan atau catatan kertas yang mudah hilang.",
@@ -261,9 +279,60 @@ export const idDictionary: TranslationDictionary = {
     },
     aiAssistant: {
       badge: "Asisten AI Budidaya",
-      title: "Pahami Gejala Tanaman dengan Panduan Praktis",
+      accessBadge: "Paket Berlangganan (Rp45.000/bln)",
+      title: "Konsultasi Budidaya & Diagnosis Visual Tanaman",
       description:
-        "Asisten tanya-jawab terarah yang membantu petani mengurai penyebab daun menguning, pucuk mengering, atau pertumbuhan lambat melalui langkah pemeriksaan bertahap.",
+        "Asisten terpadu yang membantu petani mengurai penyebab kendala tanaman lewat konsultasi bertahap dan diagnosis visual awal penyakit dari foto daun.",
+      photoFeature: {
+        badge: "Diagnosis Visual AI",
+        includedTag: "Termasuk di Paket Langganan • Tanpa Biaya Terpisah",
+        title: "Diagnosis Awal Penyakit atau Gangguan dari Foto Daun",
+        description:
+          "Unggah foto daun atau bagian tanaman yang bermasalah. Model AI menganalisis gejala visual untuk mengidentifikasi kemungkinan penyakit atau stres nutrisi beserta rekomendasi penanganan.",
+        stepsHeading: "Alur Pemeriksaan Diagnosis Foto:",
+        steps: [
+          {
+            step: "01",
+            title: "Unggah Foto Tanaman",
+            desc: "Ambil foto bagian daun atau pucuk tanaman yang bermasalah dengan pencahayaan cukup.",
+          },
+          {
+            step: "02",
+            title: "Analisis Model AI",
+            desc: "Model memindai pola visual bercak, perubahan warna klorosis, atau nekrosis jaringan.",
+          },
+          {
+            step: "03",
+            title: "Prediksi & Keyakinan",
+            desc: "Menampilkan kemungkinan penyakit atau gangguan disertai indikasi tingkat keyakinan.",
+          },
+          {
+            step: "04",
+            title: "Uraian Gejala & Sebab",
+            desc: "Menjelaskan faktor pemicu (suhu air tandon, pH tidak stabil, atau kelembapan talang).",
+          },
+          {
+            step: "05",
+            title: "Langkah Penanganan",
+            desc: "Panduan tindakan segera, penyesuaian nutrisi, serta pencegahan agar tidak meluas.",
+          },
+        ],
+        sampleAnalysis: {
+          badge: "Simulasi Pratinjau Deteksi Foto",
+          crop: "Selada Romaine • 24 HST • Talang NFT",
+          diagnosis: "Kemungkinan: Bercak Daun Cercospora (Cercospora Leaf Spot)",
+          confidence: "Tingkat Keyakinan Model: 88%",
+          symptoms:
+            "Bercak bulat kecokelatan dengan tepi gelap pada helai daun bawah, dipicu oleh kelembapan talang yang tinggi dan sirkulasi udara terbatas.",
+          recommendations: [
+            "Pangkas daun yang terinfeksi parah dan jauhkan dari area greenhouse.",
+            "Optimalkan sirkulasi kipas angin dan atur jarak antar tanaman agar daun cepat kering.",
+            "Periksa kebersihan instalasi dan semprotkan fungisida hayati organik di pagi hari.",
+          ],
+          limitationNote:
+            "Catatan Batasan: Jika gambar buram, pencahayaan minim, atau hasil model tidak konklusif, sistem akan menampilkan keterbatasan tersebut dan menyarankan pemeriksaan langsung dengan ahli agronomi.",
+        },
+      },
       cautionBadge: "Batasan penting agronomi",
       cautionText:
         "Asisten AI memberikan panduan pemeriksaan awal. Jika terjadi serangan penyakit akar atau bakteri yang menyebar cepat, petani tetap perlu berkonsultasi langsung dengan ahli agronomi.",
@@ -414,22 +483,27 @@ export const idDictionary: TranslationDictionary = {
     badge: "Penawaran & Biaya",
     heading: "Satu Paket Lengkap untuk Seluruh Kebutuhan Kebun",
     description:
-      "BumiLoka dirancang sederhana tanpa skema berbelit. Seluruh layanan inti dapat diakses dalam satu paket bulanan transparan.",
+      "BumiLoka dirancang sederhana tanpa skema berbelit. Seluruh layanan inti budidaya dapat diakses dalam satu paket bulanan transparan.",
     planBadge: "Paket Berlangganan",
     planName: "BumiLoka",
     price: "Rp45.000",
     priceDescriptor: "/bulan",
     priceBillingSub: "Ditagihkan setiap bulan",
     planDescription:
-      "Akses terpadu ke seluruh layanan BumiLoka untuk membantu pemantauan nutrisi harian, konsultasi gejala tanaman lewat asisten AI, dan publikasi pra-pesan hasil panen.",
+      "Akses terpadu ke Manajemen Tanaman (pencatatan pH/PPM/HST) dan Asisten AI (konsultasi harian serta diagnosis visual awal penyakit dari foto). Marketplace panen tetap dapat diakses gratis tanpa paket ini.",
     featuresLabel: "Cakupan Layanan:",
     features: [
-      "Marketplace Hasil Panen: publikasi jadwal dan kuota pra-pesan sayuran",
-      "Pengelolaan Budidaya: pencatatan pH, PPM, suhu tandon, dan umur tanaman (HST)",
-      "Asisten AI Budidaya: panduan bertahap untuk kendala daun dan nutrisi",
+      "Manajemen Tanaman: pencatatan pH, PPM, suhu tandon harian, dan umur tanaman (HST)",
+      "Asisten AI Budidaya: panduan bertahap untuk kendala daun, akar, dan nutrisi",
+      "Diagnosis Penyakit dari Foto: analisis visual awal gejala tanaman terintegrasi di AI Assistant",
       "Pengingat tugas rutin: jadwal kuras tandon, cek pompa, dan kalibrasi alat",
       "Akses penuh tanpa pemisahan fitur atau batasan meja instalasi",
     ],
+    marketplaceFreeNote: {
+      title: "Marketplace Hasil Panen: Akses Gratis",
+      description:
+        "Marketplace dapat dijelajahi secara bebas tanpa perlu berlangganan paket ini. Siapa pun dapat melihat komoditas panen dan profil kebun tanpa biaya langganan.",
+    },
     howToSubscribeLabel: "Cara Mendaftar Langganan:",
     howToSubscribeText:
       "Hubungi kami secara langsung melalui WhatsApp atau Email untuk menanyakan atau mengaktifkan akses langganan:",
@@ -445,61 +519,86 @@ export const idDictionary: TranslationDictionary = {
     badge: "Tanya Jawab & Bantuan",
     heading: "Pertanyaan yang Sering Diajukan",
     description:
-      "Informasi mengenai layanan BumiLoka, paket langganan Rp45.000/bulan, batasan asisten AI, dan status pengembangan website.",
+      "Informasi mengenai layanan BumiLoka, paket langganan Rp45.000/bulan, akses gratis marketplace, dan diagnosis foto terintegrasi.",
     expandAll: "Buka Semua",
     collapseAll: "Tutup Semua",
     categories: {
       Semua: "Semua",
       Umum: "Umum",
-      Langganan: "Langganan",
       Marketplace: "Marketplace",
-      "Pengelolaan Budidaya": "Pengelolaan Budidaya",
+      Langganan: "Langganan",
+      "Pengelolaan Budidaya": "Manajemen Tanaman",
       "Asisten AI": "Asisten AI",
     },
     items: [
       {
         id: "faq-apa-itu-bumiloka",
         category: "Umum",
-        question: "Apa itu BumiLoka dan apa fokus layanannya?",
+        question: "Apa itu BumiLoka dan bagaimana struktur layanannya?",
         answer:
-          "BumiLoka adalah platform pendukung budidaya hidroponik yang menggabungkan tiga kebutuhan utama: Pengelolaan Budidaya untuk mencatat kondisi tanaman dan tandon harian, Marketplace Hasil Panen untuk mempertemukan petani dengan pembeli sebelum hari potong, serta Asisten AI Budidaya untuk membantu memahami gejala tanaman dan panduan penanganannya.",
+          "BumiLoka adalah platform pendukung budidaya hidroponik yang memiliki tiga layanan utama: Marketplace Hasil Panen yang dapat diakses gratis untuk menjelajahi dan menemukan sayuran segar langsung dari petani, serta Manajemen Tanaman dan Asisten AI yang tersedia dalam satu paket langganan Rp45.000 per bulan untuk pemantauan harian dan penanganan kendala kebun.",
+      },
+      {
+        id: "faq-marketplace-gratis",
+        category: "Marketplace",
+        question: "Apakah untuk menjelajahi Marketplace Hasil Panen harus berlangganan?",
+        answer:
+          "Tidak. Marketplace Hasil Panen terbuka dan dapat diakses secara gratis tanpa perlu membeli paket berlangganan. Calon pembeli maupun pengunjung umum bebas menjelajahi katalog sayuran segar, perkiraan tanggal panen, dan profil kebun penjual. Jika fitur tertentu membutuhkan akun (misalnya bagi petani untuk mendaftarkan batch panen), kebutuhan akun tersebut terpisah dari kewajiban berlangganan. Transaksi dan pengiriman mengikuti kesepakatan riil antar pihak.",
+        highlightNote:
+          "Akses Bebas: Menjelajahi produk dan informasi penjual di marketplace tidak memerlukan biaya langganan.",
       },
       {
         id: "faq-biaya-langganan",
         category: "Langganan",
         question: "Berapa biaya langganan BumiLoka dan apa saja yang didapatkan?",
         answer:
-          "BumiLoka menyediakan satu paket berlangganan seharga Rp45.000 per bulan (Rp45.000/bulan). Paket ini mencakup seluruh layanan inti: Pengelolaan Budidaya untuk log pH/PPM/suhu tandon, Marketplace Hasil Panen untuk membuka pra-pesan sayuran, dan Asisten AI Budidaya untuk panduan penanganan gejala tanaman. Pendaftaran dan pertanyaan langganan dapat dilakukan langsung dengan menghubungi kontak resmi WhatsApp atau Email BumiLoka.",
+          "BumiLoka menyediakan satu paket berlangganan seharga Rp45.000 per bulan (Rp45.000/bulan, ditagihkan bulanan, bukan sekali bayar). Paket ini mencakup seluruh fitur inti budidaya: Manajemen Tanaman (log pH/PPM/suhu tandon harian dan umur tanam) serta AI Assistant (konsultasi budidaya dan kemampuan diagnosis awal penyakit tanaman dari foto). Marketplace Hasil Panen tetap dapat digunakan tanpa membeli paket ini.",
         highlightNote:
-          "Biaya Berlangganan: Rp45.000 per bulan (ditagihkan bulanan, bukan sekali bayar). Untuk mulai berlangganan, hubungi WhatsApp (+62 852-1054-2025 - Rayn Amannullah Tzulkifli) atau Email (bumiloka227@gmail.com).",
+          "Biaya Berlangganan: Rp45.000 per bulan (ditagihkan bulanan, bukan sekali bayar). Mencakup Manajemen Tanaman + AI Assistant (dengan diagnosis foto).",
+      },
+      {
+        id: "faq-diagnosis-foto-biaya",
+        category: "Asisten AI",
+        question: "Apakah fitur diagnosis penyakit tanaman dari foto dikenakan biaya terpisah?",
+        answer:
+          "Tidak. Kemampuan diagnosis visual penyakit dan gangguan tanaman melalui foto merupakan bagian terintegrasi dari AI Assistant. Fitur ini mengikuti hak akses AI Assistant dan sudah termasuk penuh dalam paket langganan Rp45.000 per bulan, tanpa ada paket tersendiri, batasan berbayar per foto, atau biaya tambahan lainnya.",
+        highlightNote:
+          "Terintegrasi Penuh: Diagnosis foto termasuk dalam AI Assistant di paket langganan Rp45.000/bulan tanpa biaya ekstra.",
+      },
+      {
+        id: "faq-cara-kerja-diagnosis-foto",
+        category: "Asisten AI",
+        question: "Bagaimana cara kerja diagnosis foto tanaman dan apa batasannya?",
+        answer:
+          "Pengguna mengunggah foto daun atau bagian tanaman yang bermasalah, lalu sistem AI menganalisis gejala visual untuk memperkirakan kemungkinan gangguan tanaman beserta tingkat keyakinan (confidence score), penjelasan penyebab, serta langkah penanganan dan pencegahan. Diagnosis ini merupakan pemeriksaan awal berbasis pola visual dan bukan pengganti diagnosa ahli agronomi atau uji laboratorium. Jika gambar buram, pencahayaan kurang, atau hasil model tidak meyakinkan, sistem akan menampilkan keterbatasan tersebut.",
       },
       {
         id: "faq-siapa-pengguna",
         category: "Umum",
         question: "Siapa saja yang dapat menggunakan BumiLoka?",
         answer:
-          "BumiLoka dapat digunakan oleh petani hidroponik pemula skala rumahan yang membutuhkan panduan pemantauan nutrisi yang jelas, maupun pengelola kebun produktif yang ingin merapikan pencatatan jadwal tanam dan memperluas pembeli hasil panen.",
+          "BumiLoka dapat digunakan oleh petani hidroponik pemula skala rumahan yang membutuhkan panduan pemantauan nutrisi yang jelas, pengelola kebun produktif yang ingin merapikan pencatatan jadwal tanam, maupun calon pembeli dan bisnis katering yang ingin mencari sayuran segar langsung dari kebun melalui marketplace gratis.",
       },
       {
         id: "faq-cara-promosi-panen",
         category: "Marketplace",
-        question: "Bagaimana cara kerja Marketplace Hasil Panen?",
+        question: "Bagaimana cara kerja Marketplace Hasil Panen bagi petani dan pembeli?",
         answer:
-          "Petani dapat mendaftarkan jadwal panen, varietas sayuran (seperti selada, pakcoy, atau kale), metode budidaya, dan perkiraan jumlah panen beberapa hari sebelum waktu potong. Dengan demikian, calon pembeli atau pelanggan dapat memesan lebih awal tanpa menunggu sayuran menumpuk di kebun.",
+          "Petani dapat mendaftarkan jadwal panen, varietas sayuran (seperti selada, pakcoy, atau kale), metode budidaya, dan estimasi kuota panen sebelum hari potong tiba. Calon pembeli dapat memesan lebih awal secara transparan, menjaga sayuran tetap segar tanpa menumpuk di instalasi.",
       },
       {
         id: "faq-manajemen-tanaman",
         category: "Pengelolaan Budidaya",
-        question: "Apa manfaat fitur Pengelolaan Budidaya bagi perawatan harian?",
+        question: "Apa manfaat fitur Manajemen Tanaman bagi perawatan kebun harian?",
         answer:
-          "Fitur ini membantu Anda mencatat umur tanaman (HST), nilai pH air, kepekatan larutan (PPM), dan suhu tandon di setiap meja instalasi. Anda juga mendapatkan pengingat berkala untuk rutinitas penting seperti kuras tandon dan kalibrasi alat ukur.",
+          "Fitur ini membantu Anda mencatat umur tanaman (HST), nilai pH air, kepekatan larutan (PPM), dan suhu tandon di setiap meja instalasi secara teratur. Anda juga mendapatkan pengingat berkala untuk rutinitas penting seperti kuras tandon, cek pompa, dan kalibrasi alat ukur.",
       },
       {
         id: "faq-fungsi-asisten-ai",
         category: "Asisten AI",
         question: "Bagaimana Asisten AI membantu saat tanaman mengalami masalah?",
         answer:
-          "Asisten AI membantu mengurai gejala fisik pada tanaman—misalnya daun bawah menguning atau ujung daun terbakar—menjadi urutan pemeriksaan praktis meliputi pH, suhu air, kepekatan nutrisi, dan aliran udara di kebun.",
+          "Asisten AI membantu mengurai gejala fisik pada tanaman—baik melalui konsultasi teks terarah maupun analisis foto daun—menjadi urutan pemeriksaan praktis meliputi pH, suhu air, kepekatan nutrisi, sirkulasi udara, dan langkah penyesuaian dosis yang aman.",
       },
       {
         id: "faq-batasan-ai-agronomi",
@@ -507,7 +606,7 @@ export const idDictionary: TranslationDictionary = {
         question:
           "Mengapa panduan Asisten AI tidak menggantikan peran ahli agronomi?",
         answer:
-          "Banyak gejala tanaman hidroponik memiliki tampilan luar yang serupa antara kekurangan nutrisi, stres suhu, dan serangan penyakit akar. Asisten AI memberikan panduan pemeriksaan awal berbasis pola umum, namun tidak dapat memeriksa langsung ke lapangan atau melakukan uji laboratorium. Untuk kasus serangan penyakit yang menyebar cepat atau keputusan produksi skala besar, petani tetap perlu berkonsultasi dengan ahli pertanian atau penyuluh lapangan.",
+          "Banyak gejala tanaman hidroponik memiliki tampilan luar yang serupa antara kekurangan hara spesifik, stres suhu, dan infeksi patogen akar. Asisten AI memberikan panduan pemeriksaan awal berbasis pola umum, namun tidak melakukan uji laboratorium langsung. Untuk serangan penyakit sistemik yang menyebar cepat, petani tetap perlu berkonsultasi langsung dengan ahli agronomi atau penyuluh lapangan.",
         highlightNote:
           "Prinsip Keamanan: Asisten AI berfungsi sebagai panduan awal, bukan pengganti pemeriksaan laboratorium atau diagnosa ahli agronomi.",
       },
@@ -524,17 +623,18 @@ export const idDictionary: TranslationDictionary = {
   finalCta: {
     heading: "Mulai Kelola Kebun Hidroponik Anda Lebih Teratur dan Pasti",
     description:
-      "BumiLoka hadir mendampingi seluruh tahapan budidaya—dari pemantauan nutrisi harian di tandon, diagnosa gejala daun bersama asisten AI, hingga kepastian penyaluran hasil panen.",
+      "Nikmati akses gratis ke Marketplace Hasil Panen serta dukungan penuh Manajemen Tanaman dan AI Assistant dalam satu paket langganan Rp45.000/bulan.",
     button: "Informasi Langganan (Rp45.000/bulan)",
     notice:
       "Pratinjau konsep antarmuka • Pendaftaran langganan via kontak resmi WhatsApp & Email",
   },
   footer: {
     tagline:
-      "BumiLoka adalah platform pendukung budidaya hidroponik yang menggabungkan pemantauan nutrisi air tandon harian, marketplace pra-pesan panen, dan asisten AI penanganan gejala tanaman.",
-    subscriptionBadge: "Paket Langganan: Rp45.000/bulan (akses seluruh modul)",
+      "BumiLoka adalah platform pendukung budidaya hidroponik yang menggabungkan Marketplace panen gratis, pencatatan tandon Manajemen Tanaman, dan diagnosis Asisten AI.",
+    subscriptionBadge: "Paket Langganan: Rp45.000/bulan (Manajemen Tanaman & AI Assistant)",
+    marketplaceBadge: "Marketplace Hasil Panen: Akses Gratis",
     contactHeading: "Kontak Langganan",
-    whatsappContactNote: "WhatsApp:",
+    whatsappContactNote: "WhatsApp resmi pertanyaan & pendaftaran langganan",
     emailContactNote: "Email resmi pertanyaan & pendaftaran",
     navHeading: "Navigasi Halaman",
     copyrightNotice: "BumiLoka. Tampilan website adalah pratinjau konsep antarmuka.",

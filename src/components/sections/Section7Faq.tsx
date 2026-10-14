@@ -8,8 +8,9 @@ export function Section7Faq() {
   const { t } = useLanguage();
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
     "faq-apa-itu-bumiloka": true,
+    "faq-marketplace-langganan": true,
     "faq-biaya-langganan": true,
-    "faq-batasan-ai-agronomi": true,
+    "faq-diagnosis-foto-biaya": true,
   });
   const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>("Semua");
 
