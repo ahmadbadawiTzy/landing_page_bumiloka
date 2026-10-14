@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { HERO_CONTENT } from "@/data/landing-content";
+import { useLanguage } from "@/i18n/context";
 import { ArrowRight, ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 export function Section1Hero() {
+  const { t } = useLanguage();
+  const content = t.hero;
+
   return (
     <section
       id="hero"
@@ -36,7 +41,7 @@ export function Section1Hero() {
           {/* Subtle Clean Category Label */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 border border-white/20 backdrop-blur-xs">
             <span className="font-mono text-[11px] sm:text-xs font-semibold text-[#B6F084] tracking-wide uppercase">
-              {HERO_CONTENT.label}
+              {content.label}
             </span>
           </div>
 
@@ -45,21 +50,21 @@ export function Section1Hero() {
             id="hero-heading"
             className="font-sans text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] sm:leading-[1.12] lg:leading-[1.08] text-balance"
           >
-            {HERO_CONTENT.headline}
+            {content.headline}
           </h1>
 
           {/* Concise Supporting Copy */}
           <p className="text-sm sm:text-base lg:text-lg text-white/85 leading-relaxed font-normal max-w-2xl">
-            {HERO_CONTENT.subheadline}
+            {content.subheadline}
           </p>
 
           {/* Redesigned CTAs: Dominant primary action, restrained secondary action */}
           <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5">
             <a
-              href={HERO_CONTENT.primaryCta.href}
+              href={content.primaryCta === t.hero.primaryCta ? "#produk-layanan" : "#produk-layanan"}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 min-h-[46px] rounded-xl sm:rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm sm:text-base hover:bg-[#C7F69B] active:scale-[0.98] transition-all shadow-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white group"
             >
-              <span>{HERO_CONTENT.primaryCta.label}</span>
+              <span>{content.primaryCta}</span>
               <ArrowRight
                 className="w-4 h-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
@@ -67,10 +72,10 @@ export function Section1Hero() {
             </a>
 
             <a
-              href={HERO_CONTENT.secondaryCta.href}
+              href="#langganan"
               className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 min-h-[46px] rounded-xl sm:rounded-full bg-white/10 hover:bg-white/15 active:scale-[0.98] border border-white/20 text-white font-medium text-sm sm:text-base transition-all backdrop-blur-xs focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
             >
-              <span>{HERO_CONTENT.secondaryCta.label}</span>
+              <span>{content.secondaryCta}</span>
               <ArrowDownRight className="w-4 h-4 text-white/80" aria-hidden="true" />
             </a>
           </div>
@@ -83,7 +88,7 @@ export function Section1Hero() {
       <div className="relative z-10 w-full border-t border-white/15 bg-[#06180E]/80 backdrop-blur-md py-3.5 sm:py-4 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex md:grid md:grid-cols-3 gap-2.5 sm:gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0">
-            {HERO_CONTENT.pillars.map((pillar) => (
+            {content.pillars.map((pillar) => (
               <a
                 key={pillar.title}
                 href={pillar.href}

@@ -1,28 +1,35 @@
+"use client";
+
 import React from "react";
-import { NAV_ITEMS, SUBSCRIPTION_CONTACT } from "@/data/landing-content";
+import { useLanguage } from "@/i18n/context";
+import { SUBSCRIPTION_CONTACT } from "@/data/landing-content";
 import { BumiLokaLogo } from "@/components/brand/BumiLokaLogo";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MessageCircle, Mail } from "lucide-react";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
-    <footer className="bg-[#F7F8F3] border-t border-[#E2E6DC] text-[#121A15]">
+    <footer className="bg-[#F7F8F3] dark:bg-[#05130B] border-t border-[#E2E6DC] dark:border-[#193826] text-[#121A15] dark:text-[#E1EDE5] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-10 border-b border-[#E2E6DC]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-10 border-b border-[#E2E6DC] dark:border-[#193826]">
           {/* Brand & Mission Column */}
           <div className="md:col-span-5 space-y-3.5">
             <BumiLokaLogo variant="footer" />
-            <p className="text-sm text-[#4A554E] leading-relaxed max-w-sm">
-              BumiLoka adalah platform pendukung budidaya hidroponik yang menggabungkan pemantauan nutrisi air tandon harian, marketplace pra-pesan panen, dan asisten AI penanganan gejala tanaman.
+            <p className="text-sm text-[#4A554E] dark:text-[#A4B3A8] leading-relaxed max-w-sm">
+              {t.footer.tagline}
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#EFECE4] border border-[#E2E6DC] text-xs text-[#143323] font-medium">
-              <span>Paket Langganan: <strong>Rp45.000/bulan</strong> (akses seluruh modul)</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#EFECE4] dark:bg-[#132A1C] border border-[#E2E6DC] dark:border-[#1F452E] text-xs text-[#143323] dark:text-[#B6F084] font-medium">
+              <span>{t.footer.subscriptionBadge}</span>
             </div>
           </div>
 
           {/* Official Contact Column */}
           <div className="md:col-span-4 space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-wider text-[#143323] font-semibold">
-              Kontak Langganan
+            <h2 className="font-mono text-xs uppercase tracking-wider text-[#143323] dark:text-[#B6F084] font-semibold">
+              {t.footer.contactHeading}
             </h2>
             <div className="space-y-3 text-sm">
               <div>
@@ -30,26 +37,26 @@ export function Footer() {
                   href={SUBSCRIPTION_CONTACT.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#121A15] hover:text-[#1F6E43] font-semibold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
+                  className="inline-flex items-center gap-2 text-[#121A15] dark:text-white hover:text-[#1F6E43] dark:hover:text-[#B6F084] font-semibold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#1F6E43] shrink-0" aria-hidden="true" />
+                  <MessageCircle className="w-4 h-4 text-[#1F6E43] dark:text-[#B6F084] shrink-0" aria-hidden="true" />
                   <span>{SUBSCRIPTION_CONTACT.phoneDisplay}</span>
                 </a>
-                <p className="text-xs text-[#68736C] pl-6 mt-0.5">
-                  WhatsApp: {SUBSCRIPTION_CONTACT.whatsappContactName}
+                <p className="text-xs text-[#68736C] dark:text-[#8E9F93] pl-6 mt-0.5">
+                  {t.footer.whatsappContactNote}
                 </p>
               </div>
 
               <div>
                 <a
                   href={SUBSCRIPTION_CONTACT.emailHref}
-                  className="inline-flex items-center gap-2 text-[#121A15] hover:text-[#1F6E43] font-semibold transition-colors break-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
+                  className="inline-flex items-center gap-2 text-[#121A15] dark:text-white hover:text-[#1F6E43] dark:hover:text-[#B6F084] font-semibold transition-colors break-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
                 >
-                  <Mail className="w-4 h-4 text-[#1F6E43] shrink-0" aria-hidden="true" />
+                  <Mail className="w-4 h-4 text-[#1F6E43] dark:text-[#B6F084] shrink-0" aria-hidden="true" />
                   <span>{SUBSCRIPTION_CONTACT.email}</span>
                 </a>
-                <p className="text-xs text-[#68736C] pl-6 mt-0.5">
-                  Email resmi pertanyaan &amp; pendaftaran
+                <p className="text-xs text-[#68736C] dark:text-[#8E9F93] pl-6 mt-0.5">
+                  {t.footer.emailContactNote}
                 </p>
               </div>
             </div>
@@ -57,15 +64,15 @@ export function Footer() {
 
           {/* Navigation Links Column */}
           <div className="md:col-span-3 space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-wider text-[#143323] font-semibold">
-              Navigasi Halaman
+            <h2 className="font-mono text-xs uppercase tracking-wider text-[#143323] dark:text-[#B6F084] font-semibold">
+              {t.footer.navHeading}
             </h2>
             <ul className="grid grid-cols-2 gap-1.5 text-sm">
-              {NAV_ITEMS.map((item) => (
+              {t.nav.items.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-[#4A554E] hover:text-[#143323] transition-colors py-1 inline-block focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
+                    className="text-[#4A554E] dark:text-[#A4B3A8] hover:text-[#143323] dark:hover:text-white transition-colors py-1 inline-block focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#143323] rounded-xs"
                   >
                     <span>{item.label}</span>
                   </a>
@@ -75,13 +82,17 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Editorial Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#68736C]">
+        {/* Bottom Editorial Bar with Alternative Access Controls for All Viewports */}
+        <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#68736C] dark:text-[#8E9F93]">
           <p>
-            © {new Date().getFullYear()} BumiLoka. Tampilan website adalah pratinjau konsep antarmuka.
+            © {new Date().getFullYear()} {t.footer.copyrightNotice}
           </p>
-          <p className="font-mono text-[11px] text-[#4A554E]">
-            Membangun Negeri dari Bumi dan Tani • Langganan Rp45.000/bulan
+          <div className="flex items-center gap-2">
+            <LanguageToggle variant="desktop" />
+            <ThemeToggle variant="desktop" />
+          </div>
+          <p className="font-mono text-[11px] text-[#4A554E] dark:text-[#A4B3A8]">
+            {t.footer.motto}
           </p>
         </div>
       </div>

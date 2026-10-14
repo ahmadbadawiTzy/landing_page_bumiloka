@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { NAV_ITEMS } from "@/data/landing-content";
+import { useLanguage } from "@/i18n/context";
 import { BumiLokaLogo } from "@/components/brand/BumiLokaLogo";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
+  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,9 +25,7 @@ export function Navbar() {
       }
     };
 
-    // Check on initial load
     handleScroll();
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -39,7 +40,7 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
-  // Lock body scroll when mobile menu is open to prevent background jitter
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       const originalOverflow = document.body.style.overflow;
@@ -71,15 +72,15 @@ export function Navbar() {
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-300 motion-reduce:transition-none pointer-events-auto ${
             isScrolled
-              ? "max-w-6xl px-3 sm:px-6 py-1.5 sm:py-2 rounded-2xl lg:rounded-full bg-white/95 backdrop-blur-md border border-[#E2E6DC] shadow-lg shadow-[#06180E]/5"
+              ? "max-w-6xl px-3 sm:px-5 py-1.5 sm:py-2 rounded-2xl lg:rounded-full bg-white/95 dark:bg-[#071F13]/95 backdrop-blur-md border border-[#E2E6DC] dark:border-white/15 shadow-lg shadow-[#06180E]/5"
               : "max-w-7xl px-0 py-0 bg-transparent border-transparent"
           }`}
         >
-          {/* Brand Identity with Enriched BumiLoka Logo */}
+          {/* Brand Identity with Official BumiLoka Logo */}
           <a
             href="#hero"
             className="flex items-center py-1 rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
-            aria-label="BumiLoka — Kembali ke Beranda"
+            aria-label={t.nav.homeAria}
           >
             <BumiLokaLogo />
           </a>
@@ -87,15 +88,15 @@ export function Navbar() {
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Navigasi utama"
-            className="hidden lg:flex items-center gap-1 xl:gap-1.5"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1"
           >
-            {NAV_ITEMS.slice(1, 7).map((item) => (
+            {t.nav.items.slice(1, 7).map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`px-3.5 py-2 rounded-full text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
+                className={`px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
                   isScrolled
-                    ? "text-[#161D19] hover:text-[#143323] hover:bg-[#EFECE4]"
+                    ? "text-[#161D19] dark:text-white/90 hover:text-[#143323] dark:hover:text-[#B6F084] hover:bg-[#EFECE4] dark:hover:bg-white/10"
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
@@ -104,31 +105,34 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Action Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Controls Cluster: Language + Theme + CTA */}
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5">
+            <LanguageToggle variant="desktop" />
+            <ThemeToggle variant="desktop" />
+
             <a
               href="#langganan"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#B6F084] text-[#092215] text-sm font-semibold hover:bg-[#C7F69B] transition-all shadow-xs hover:shadow-sm group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#B6F084] text-[#092215] text-xs xl:text-sm font-bold hover:bg-[#C7F69B] active:scale-[0.98] transition-all shadow-xs hover:shadow-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
             >
-              <span>Paket Langganan</span>
+              <span>{t.nav.cta}</span>
               <ArrowUpRight
-                className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button (Strict 44x44px touch target) */}
+          {/* Mobile Right Hamburger Button: Exactly ONE control, comfortable 44x44px touch target */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation-panel"
-            aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-            className={`lg:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl transition-all active:scale-95 touch-press focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
+            aria-label={mobileMenuOpen ? t.nav.menuCloseAria : t.nav.menuOpenAria}
+            className={`flex lg:hidden items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl transition-all active:scale-95 touch-press focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084] ${
               isScrolled
-                ? "border border-[#DCD8CE] bg-white text-[#161D19] hover:bg-[#EFECE4]"
-                : "border border-white/20 bg-black/40 text-white backdrop-blur-xs hover:bg-black/60"
+                ? "border border-[#DCD8CE] dark:border-white/15 bg-white/95 dark:bg-[#0C1F15] text-[#161D19] dark:text-white hover:bg-[#EFECE4] dark:hover:bg-white/10 shadow-2xs"
+                : "border border-white/25 bg-black/40 text-white backdrop-blur-xs hover:bg-black/60 shadow-2xs"
             }`}
           >
             {mobileMenuOpen ? (
@@ -141,35 +145,32 @@ export function Navbar() {
 
         {/* Mobile Navigation Panel */}
         {mobileMenuOpen && (
-          <div className="pointer-events-auto max-w-6xl mx-auto mt-2">
+          <div className="pointer-events-auto max-w-6xl mx-auto mt-2 px-1">
             <nav
               id="mobile-navigation-panel"
               aria-label="Navigasi seluler"
-              className="lg:hidden rounded-2xl border border-[#DCD8CE] bg-[#F7F8F3] px-4 sm:px-5 pt-3.5 pb-5 shadow-2xl space-y-3 max-h-[calc(100dvh-5.5rem)] overflow-y-auto overscroll-contain no-scrollbar"
+              className="lg:hidden rounded-2xl border border-[#DCD8CE] dark:border-white/15 bg-white/98 dark:bg-[#071F13]/98 backdrop-blur-xl p-3 sm:p-4 shadow-2xl space-y-1 max-h-[calc(100dvh-5.5rem)] overflow-y-auto overscroll-contain no-scrollbar"
             >
-              <div className="flex flex-col space-y-1">
-                {NAV_ITEMS.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3.5 py-3 min-h-[48px] rounded-xl text-base font-medium text-[#161D19] active:bg-[#EAE6DC] active:scale-[0.99] touch-press transition-colors"
-                  >
-                    <span>{item.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#68736C]" aria-hidden="true" />
-                  </a>
-                ))}
-              </div>
-              <div className="pt-3 border-t border-[#DCD8CE]">
+              {/* Essential navigation links */}
+              {t.nav.items.map((item) => (
                 <a
-                  href="#langganan"
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 min-h-[48px] rounded-xl sm:rounded-full bg-[#B6F084] text-[#092215] text-sm font-bold active:scale-[0.98] touch-press transition-colors shadow-xs"
+                  className="flex items-center justify-between px-4 py-3 min-h-[44px] rounded-xl text-sm font-medium text-[#161D19] dark:text-white/90 hover:bg-[#F2F5ED] dark:hover:bg-white/10 active:bg-[#EAE6DC] dark:active:bg-white/15 active:scale-[0.99] touch-press transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#B6F084]"
                 >
-                  <span>Paket Langganan (Rp45.000/bln)</span>
-                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-xs text-[#1F6E43] dark:text-[#B6F084] font-semibold w-5">
+                      {item.sectionIndex}
+                    </span>
+                    <span>{item.label}</span>
+                  </div>
+                  <ArrowUpRight
+                    className="w-4 h-4 text-[#68736C] dark:text-white/50"
+                    aria-hidden="true"
+                  />
                 </a>
-              </div>
+              ))}
             </nav>
           </div>
         )}

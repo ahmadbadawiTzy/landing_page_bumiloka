@@ -2,59 +2,43 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { USER_JOURNEY_STAGES } from "@/data/landing-content";
+import { useLanguage } from "@/i18n/context";
 import { ShieldCheck, CheckCircle2, UserCheck, Compass } from "lucide-react";
 
 export function Section5SocialProof() {
+  const { t } = useLanguage();
   const [activeStageIdx, setActiveStageIdx] = useState(0);
-  const currentStage = USER_JOURNEY_STAGES[activeStageIdx];
+  const currentStage = t.proof.stages[activeStageIdx] || t.proof.stages[0];
 
   const stageImages = [
     "/images/hydroponic-netpot.jpg",
-    "/images/hydroponic-canopy.jpg",
+    "/images/hydroponic-can canopy.jpg".includes("can canopy") ? "/images/hydroponic-canopy.jpg" : "/images/hydroponic-canopy.jpg",
     "/images/hydroponic-greenhouse.jpg",
     "/images/hydroponic-harvest.jpg",
-  ];
-
-  const farmerPersonas = [
-    {
-      role: "Petani Skala Rumahan (Urban Grower)",
-      focus: "20–200 Lubang Tanam",
-      challenge: "Tantangan utama:",
-      insight:
-        "Membutuhkan batas aman pH dan PPM yang mudah dipahami, serta pengingat rutin agar bibit di rockwool tidak terlambat dipindahkan ke talang pembesaran.",
-    },
-    {
-      role: "Pengelola Kebun Produktif",
-      focus: "500+ Lubang Tanam (Multi-Meja)",
-      challenge: "Tantangan utama:",
-      insight:
-        "Memerlukan kerapian pencatatan jadwal tanam bergilir agar sayuran dapat dipromosikan ke pembeli rutin beberapa hari sebelum hari potong, menjaga perputaran meja.",
-    },
   ];
 
   return (
     <section
       id="bukti-konsep"
       aria-labelledby="bukti-konsep-heading"
-      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#071F13] text-white border-b border-white/10 overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#071F13] dark:bg-[#031109] text-white border-b border-white/10 dark:border-white/5 overflow-hidden transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-xs">
             <span className="font-mono text-xs font-semibold text-[#B6F084] tracking-wide uppercase">
-              Alur Kerja &amp; Bukti Konsep
+              {t.proof.badge}
             </span>
           </div>
           <h2
             id="bukti-konsep-heading"
             className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15]"
           >
-            Bagaimana BumiLoka Bekerja di Kebun Anda
+            {t.proof.heading}
           </h2>
           <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl">
-            Alur terpadu yang mendampingi petani sejak penyemaian benih, pemantauan nutrisi harian, hingga penjualan sayuran siap petik.
+            {t.proof.description}
           </p>
         </div>
 
@@ -63,9 +47,9 @@ export function Section5SocialProof() {
           <ShieldCheck className="w-5 h-5 text-[#B6F084] shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
             <strong className="text-white font-semibold">
-              Transparansi konsep alur kerja:
+              {t.proof.transparencyNotice.bold}
             </strong>{" "}
-            BumiLoka tidak menyajikan ulasan atau angka pengguna buatan. Bagian ini mendemonstrasikan bagaimana ketiga layanan saling terhubung dalam rutinitas kebun nyata.
+            {t.proof.transparencyNotice.text}
           </p>
         </div>
 
@@ -74,10 +58,10 @@ export function Section5SocialProof() {
           {/* 4-Stage Switcher */}
           <div
             role="tablist"
-            aria-label="Tahapan alur kerja budidaya"
+            aria-label={t.proof.heading}
             className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5"
           >
-            {USER_JOURNEY_STAGES.map((stage, idx) => {
+            {t.proof.stages.map((stage, idx) => {
               const isSelected = activeStageIdx === idx;
               return (
                 <button
@@ -145,7 +129,7 @@ export function Section5SocialProof() {
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#B6F084]">
                     <Compass className="w-4 h-4 shrink-0" aria-hidden="true" />
-                    <span>Petani Rumahan</span>
+                    <span>{t.proof.personas[0]?.role || "Petani Rumahan"}</span>
                   </div>
                   <p className="text-xs text-white/80 leading-relaxed">
                     {currentStage.beginnerExperience}
@@ -155,7 +139,7 @@ export function Section5SocialProof() {
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#B6F084]">
                     <UserCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
-                    <span>Kebun Produktif</span>
+                    <span>{t.proof.personas[1]?.role || "Kebun Produktif"}</span>
                   </div>
                   <p className="text-xs text-white/80 leading-relaxed">
                     {currentStage.experiencedExperience}
@@ -182,7 +166,7 @@ export function Section5SocialProof() {
 
               <div className="space-y-2">
                 <span className="font-mono text-xs text-[#B6F084] font-semibold uppercase tracking-wider block">
-                  Aktivitas di BumiLoka:
+                  {t.proof.activityLabel}
                 </span>
                 <ul className="space-y-2">
                   {currentStage.keyChecklist.map((checkItem, cIdx) => (
@@ -203,11 +187,11 @@ export function Section5SocialProof() {
         {/* Persona Comparison */}
         <div className="space-y-4 pt-4 border-t border-white/10">
           <h3 className="font-sans text-xl sm:text-2xl font-bold text-white">
-            Disesuaikan dengan Skala Kebun Anda
+            {t.proof.personasHeading}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {farmerPersonas.map((persona, pIdx) => (
+            {t.proof.personas.map((persona, pIdx) => (
               <div
                 key={pIdx}
                 className="p-5 sm:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-md space-y-3"

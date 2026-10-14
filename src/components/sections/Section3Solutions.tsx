@@ -1,20 +1,25 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { SOLUTIONS_BENEFITS } from "@/data/landing-content";
+import { useLanguage } from "@/i18n/context";
 import { ShoppingBag, Sprout, Bot, Check, ArrowRight } from "lucide-react";
 
 export function Section3Solutions() {
+  const { t } = useLanguage();
+  const content = t.solutions;
+
   const capabilityIcons = [
-    <ShoppingBag key="s1" className="w-5 h-5 text-[#092215]" aria-hidden="true" />,
-    <Sprout key="s2" className="w-5 h-5 text-[#092215]" aria-hidden="true" />,
-    <Bot key="s3" className="w-5 h-5 text-[#092215]" aria-hidden="true" />,
+    <ShoppingBag key="s1" className="w-5 h-5 text-[#092215] dark:text-[#B6F084]" aria-hidden="true" />,
+    <Sprout key="s2" className="w-5 h-5 text-[#092215] dark:text-[#B6F084]" aria-hidden="true" />,
+    <Bot key="s3" className="w-5 h-5 text-[#092215] dark:text-[#B6F084]" aria-hidden="true" />,
   ];
 
   return (
     <section
       id="solusi-manfaat"
       aria-labelledby="solusi-manfaat-heading"
-      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#092215] text-white border-b border-white/10 overflow-hidden"
+      className="w-full relative py-14 sm:py-20 lg:py-28 bg-[#092215] dark:bg-[#071F13] text-white border-b border-white/10 overflow-hidden transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         {/* Split Feature Introduction */}
@@ -24,7 +29,7 @@ export function Section3Solutions() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-xs">
                 <span className="font-mono text-xs font-semibold text-[#B6F084] tracking-wide uppercase">
-                  Solusi &amp; Manfaat
+                  {content.badge}
                 </span>
               </div>
 
@@ -32,28 +37,24 @@ export function Section3Solutions() {
                 id="solusi-manfaat-heading"
                 className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.18] sm:leading-[1.15]"
               >
-                Tiga Solusi Terpadu untuk Menjawab Kendala Kebun
+                {content.heading}
               </h2>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed font-normal">
-                BumiLoka menghubungkan pemantauan nutrisi harian di instalasi kebun dengan jalur penjualan langsung ke pembeli. Setiap modul dirancang untuk mengatasi satu titik kritis dalam siklus budidaya hidroponik.
+                {content.description}
               </p>
             </div>
 
             {/* Core Value Summary */}
             <div className="space-y-3.5 pt-4 border-t border-white/15 text-sm sm:text-base">
-              <div className="flex items-start gap-3 text-white/90">
-                <span className="font-mono text-xs text-[#B6F084] font-bold mt-1 px-1.5 py-0.5 rounded-sm bg-white/10">01</span>
-                <span>Kepastian Pasar: Promosi jadwal panen sebelum hari potong tiba.</span>
-              </div>
-              <div className="flex items-start gap-3 text-white/90">
-                <span className="font-mono text-xs text-[#B6F084] font-bold mt-1 px-1.5 py-0.5 rounded-sm bg-white/10">02</span>
-                <span>Keteraturan Tandon: Pencatatan pH dan PPM mencegah tanaman kekurangan nutrisi.</span>
-              </div>
-              <div className="flex items-start gap-3 text-white/90">
-                <span className="font-mono text-xs text-[#B6F084] font-bold mt-1 px-1.5 py-0.5 rounded-sm bg-white/10">03</span>
-                <span>Asisten AI: Panduan langkah pemeriksaan awal saat daun menunjukkan gejala kendala.</span>
-              </div>
+              {content.keyPoints.map((point, pIdx) => (
+                <div key={pIdx} className="flex items-start gap-3 text-white/90">
+                  <span className="font-mono text-xs text-[#B6F084] font-bold mt-1 px-1.5 py-0.5 rounded-xs bg-white/10">
+                    0{pIdx + 1}
+                  </span>
+                  <span>{point}</span>
+                </div>
+              ))}
             </div>
 
             <div className="pt-2">
@@ -61,7 +62,7 @@ export function Section3Solutions() {
                 href="#produk-layanan"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#B6F084] text-[#092215] font-bold text-sm hover:bg-[#C7F69B] transition-all shadow-md hover:scale-[1.01] group min-h-[48px] touch-press"
               >
-                <span>Lihat Pratinjau Tiga Modul</span>
+                <span>{content.mainCta}</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </a>
             </div>
@@ -71,16 +72,18 @@ export function Section3Solutions() {
           <div className="lg:col-span-5 rounded-3xl overflow-hidden relative min-h-[260px] sm:min-h-[340px] lg:min-h-[420px] border border-white/15 shadow-xl bg-[#06180E]">
             <Image
               src="/images/hydroponic-netpot.jpg"
-              alt="Akar tanaman selada hidroponik yang sehat dan bersih di dalam netpot instalasi NFT"
+              alt={content.photoCaptionTitle}
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 text-white text-xs sm:text-sm">
-              <span className="font-semibold block text-base sm:text-lg text-white">Dari Semai hingga Panen Terjual</span>
+              <span className="font-semibold block text-base sm:text-lg text-white">
+                {content.photoCaptionTitle}
+              </span>
               <span className="text-white/80 text-xs sm:text-sm block mt-1">
-                Menghubungkan ketertiban teknis budidaya dengan kepastian pembeli
+                {content.photoCaptionText}
               </span>
             </div>
           </div>
@@ -88,7 +91,7 @@ export function Section3Solutions() {
 
         {/* 3 Detailed Benefit Mapping Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-          {SOLUTIONS_BENEFITS.map((solution, idx) => (
+          {content.items.map((solution, idx) => (
             <div
               key={solution.id}
               className="bg-white/5 backdrop-blur-xs rounded-3xl border border-white/15 p-5 sm:p-8 flex flex-col justify-between hover:bg-white/10 hover:border-white/30 shadow-md transition-all group"
@@ -120,7 +123,7 @@ export function Section3Solutions() {
                 {/* Outcomes Checklist */}
                 <div className="mt-6 pt-4 border-t border-white/15">
                   <span className="font-mono text-[11px] font-semibold text-white/90 block mb-3 uppercase tracking-wide">
-                    Manfaat bagi petani:
+                    {content.outcomesLabel}
                   </span>
                   <ul className="space-y-2.5">
                     {solution.concreteOutcomes.map((outcome, oIdx) => (
@@ -141,7 +144,7 @@ export function Section3Solutions() {
                   href={solution.targetAnchor}
                   className="inline-flex items-center gap-2 text-xs font-semibold text-[#B6F084] hover:text-[#C7F69B] transition-colors group/link min-h-[44px] touch-press"
                 >
-                  <span>Lihat Pratinjau Modul</span>
+                  <span>{content.cardPreviewLink}</span>
                   <ArrowRight
                     className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1"
                     aria-hidden="true"

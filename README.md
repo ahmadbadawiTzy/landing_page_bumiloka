@@ -77,7 +77,10 @@ Variabel lingkungan yang didukung telah didokumentasikan pada [`.env.example`](.
 
 | Variabel | Sifat | Default | Penjelasan |
 | :--- | :---: | :--- | :--- |
-| `NEXT_PUBLIC_SITE_URL` | Opsional (Publik) | `https://bumiloka.id` | Domain asal produksi untuk canonical URL, OpenGraph metadata, `sitemap.xml`, dan `robots.txt`. |
+| `NEXT_PUBLIC_SITE_URL` | Opsional (Publik) | `https://bumilokalandingpage.vercel.app` | Domain asal produksi untuk canonical URL, OpenGraph metadata, `sitemap.xml`, dan `robots.txt`. |
+
+> **Catatan Pemulihan SEO (SEO Recovery):**  
+> Sebelumnya, canonical tag mengarah ke `https://bumiloka.id` yang belum memiliki domain/DNS aktif, sehingga perayap Google Search menolak mengindeks deployment Vercel. Default `SITE_URL` kini diarahkan ke domain preview terverifikasi (`https://bumilokalandingpage.vercel.app`). Jika domain kustom pribadi telah aktif, Anda dapat memperbaruinya via variabel ini di dashboard Vercel.
 
 Untuk pengujian lokal dengan domain berbeda:
 ```bash
@@ -191,26 +194,49 @@ bumiloka/
 
 ---
 
-## 10. Implementasi SEO Teknis (*Technical SEO Implementation*)
+## 10. Implementasi SEO Teknis & Pemulihan Mesin Pencari (*Technical SEO Recovery*)
 
-Sesuai dokumen otoritatif [`docs/seo.md`](./docs/seo.md), implementasi SEO teknis pada proyek ini mencakup:
+Sesuai dokumen otoritatif [`docs/seo.md`](./docs/seo.md) dan audit diagnostik penelusuran Google Search:
 
-1. **Next.js Metadata API Dinamis:**
-   - Dikonfigurasi terpusat pada `src/app/layout.tsx` menggunakan `metadataBase: new URL(SITE_URL)`.
-   - Menggunakan canonical URL eksplisit (`alternates: { canonical: "/" }`), judul deskriptif dengan template (`%s | BumiLoka`), dan deskripsi alami berbahasa Indonesia.
+1. **Pemulihan Origin & Canonical Tag (SEO Recovery):**
+   - Diagnosis mengungkap domain default lama (`bumiloka.id`) tidak memiliki data DNS yang aktif, menyebabkan perayap Google Search pada `https://bumilokalandingpage.vercel.app` membatalkan pengindeksan akibat canonical tag mengarah ke domain mati.
+   - Solusi: `SITE_URL` diset secara aman dan terverifikasi ke `https://bumilokalandingpage.vercel.app` dengan trailing slash terstandarisasi.
+   - Alternates hreflang disediakan secara eksplisit: `id-ID` (`/`), `en-US` (`/?lang=en`), dan `x-default` (`/`).
 2. **Metadata Open Graph & Twitter:**
    - Menyertakan gambar pratinjau sosial beresolusi tinggi 1200 × 630 (`/images/hero-greenhouse-fullbleed.jpg`) dengan kartu Twitter tipe `summary_large_image`.
 3. **Data Terstruktur Schema.org (JSON-LD):**
+   - Skema `WebSite`: Entitas situs web utama dengan dukungan dwibahasa `id` dan `en`.
    - Skema `Organization`: Entitas resmi BumiLoka, slogan, dan logo WebP transparan.
-   - Skema `WebApplication`: Kategori aplikasi bisnis dan harga paket langganan Rp45.000.
+   - Skema `WebApplication`: Kategori aplikasi bisnis dan harga paket langganan Rp45.000/bulan.
    - Skema `FAQPage`: Pemetaan otomatis seluruh pertanyaan dan jawaban nyata dari komponen FAQ.
 4. **Endpoint Dinamis Mesin Pencari:**
-   - `/sitemap.xml` dihasilkan melalui `src/app/sitemap.ts` dengan frekuensi pembaruan mingguan dan prioritas 1.0.
-   - `/robots.txt` dihasilkan melalui `src/app/robots.ts` mengizinkan perayapan publik dan memblokir rute sistem `/_next/` serta `/api/`.
-5. **Aksesibilitas & Hierarki Semantik:**
-   - Struktur heading tunggal `h1` pada Hero, `h2` pada setiap bagian utama, dan `h3` pada sub-modul.
-   - Tautan lewati ke konten utama (*skip to content*) untuk pembaca layar (*screen reader*).
-   - Seluruh elemen gambar memiliki atribut `alt` deskriptif dan dimensi proporsional untuk mencegah pergeseran tata letak (*CLS*).
+   - `/sitemap.xml` dihasilkan melalui `src/app/sitemap.ts` menyertakan language alternates (`id` & `en`) dan prioritas 1.0.
+   - `/robots.txt` dihasilkan melalui `src/app/robots.ts` mengizinkan perayapan publik dan mereferensikan sitemap yang valid.
+
+---
+
+## 11. Internasionalisasi Dwibahasa (*Indonesian & English i18n*)
+
+BumiLoka mengimplementasikan arsitektur i18n bertipe penuh (*type-safe dictionary*) tanpa ketergantungan library eksternal yang membengkakkan bundle:
+
+- **Bahasa yang Didukung:** Bahasa Indonesia (`id`, default nasional) dan English (`en`, terjemahan alami & profesional).
+- **Struktur Tipe:** `src/i18n/types.ts` mendefinisikan kontrak lengkap `TranslationDictionary`.
+- **Kamus:** `src/i18n/dictionaries/id.ts` dan `src/i18n/dictionaries/en.ts`.
+- **Konteks & Hook:** `src/i18n/context.tsx` menyediakan `LanguageProvider` dan `useLanguage()`.
+- **Deteksi & Persistensi:** Memeriksa parameter URL (`?lang=en` atau `?lang=id`), menyinkronkan ke `localStorage`, dan otomatis memperbarui atribut `document.documentElement.lang`.
+- **Kontrol UI:** Tombol toggle dwibahasa terintegrasi pada bilah navigasi desktop dan laci navigasi mobile.
+
+---
+
+## 12. Sistem Tema Terang / Gelap (*Dark & Light Theme System*)
+
+Sistem tema dirancang untuk kenyamanan visual pembudidaya baik di terik greenhouse (mode terang) maupun malam hari (mode gelap):
+
+- **Mode yang Didukung:** `light`, `dark`, dan `system` (otomatis mengikuti preferensi OS via `prefers-color-scheme`).
+- **Tailwind CSS v4 Integration:** Menggunakan varian `@custom-variant dark (&:where(.dark, .dark *));` pada `globals.css` dengan basis kelas `.dark` pada elemen `<html>`.
+- **Pencegahan Kedipan (*Anti-FOUC*):** Skrip inline sinkron di `<head>` membaca `localStorage` sebelum rendering pertama dimulai (0ms flash).
+- **Persistensi:** Tersimpan pada key `bumiloka-theme` di `localStorage`.
+- **Kontrol UI:** Tombol segmented 3 mode (Matahari, Bulan, Monitor) terpasang rapi di desktop dan mobile drawer.
 
 ---
 

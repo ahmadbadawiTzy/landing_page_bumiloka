@@ -25,7 +25,7 @@ export function BumiLokaLogo({
         className={`relative overflow-hidden shrink-0 flex items-center justify-center transition-all ${
           isFooter
             ? "h-10 sm:h-12 md:h-14"
-            : "h-9 sm:h-10 md:h-[46px] rounded-xl bg-white/92 backdrop-blur-xs px-2 sm:px-2.5 py-0.5 sm:py-1 border border-white/30 shadow-2xs hover:shadow-xs"
+            : "h-9 sm:h-10 md:h-[46px] rounded-xl bg-white/92 dark:bg-white/10 backdrop-blur-xs px-2 sm:px-2.5 py-0.5 sm:py-1 border border-white/30 dark:border-white/20 shadow-2xs hover:shadow-xs"
         }`}
       >
         <Image
@@ -43,7 +43,6 @@ export function BumiLokaLogo({
 
 /**
  * BumiLoka Brand Mark helper
- * Compatible with components requesting a compact emblem representation.
  */
 export function BumiLokaMark({
   className = "w-8 h-8",
